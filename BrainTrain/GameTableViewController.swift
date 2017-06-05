@@ -43,8 +43,8 @@ class GameTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let game = self.gameManager.getGame(index: indexPath.row)
-        let gameController = GameController(for: game, parentViewController: self)
-        gameController.presentGameViewController()
+        let gameVC = GameViewController(game: game)
+        self.present(gameVC, animated: true, completion: nil)
         
     }
     

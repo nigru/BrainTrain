@@ -12,7 +12,7 @@ class TestGame: GameProtocol {
     
     private let viewController: UIViewController
     var name: String = "Test"
-    var description: String = "Ein Testspiel zu Demonstrationszwecken"
+    var description: String = "Ein Testspiel zu Demonstrationszwecken.\nZiel ist es den Button zu drücken."
     var score: Int = 0
     var didEndGame: ((Int) -> ())?
     

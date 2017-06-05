@@ -17,9 +17,10 @@
 		50683EDF1EE474610039C140 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EDE1EE474610039C140 /* GameManager.swift */; };
 		50683EE21EE4754E0039C140 /* TestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EE11EE4754E0039C140 /* TestGame.swift */; };
 		50683EE61EE478320039C140 /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EE51EE478320039C140 /* GameTableViewController.swift */; };
-		50683EE81EE54ADF0039C140 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EE71EE54ADF0039C140 /* GameController.swift */; };
 		50683EEB1EE54B390039C140 /* TestGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EE91EE54B390039C140 /* TestGameViewController.swift */; };
 		50683EEC1EE54B390039C140 /* TestGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50683EEA1EE54B390039C140 /* TestGameViewController.xib */; };
+		50683EEF1EE550FD0039C140 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EED1EE550FD0039C140 /* GameViewController.swift */; };
+		50683EF01EE550FD0039C140 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50683EEE1EE550FD0039C140 /* GameViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +57,10 @@
 		50683EDE1EE474610039C140 /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		50683EE11EE4754E0039C140 /* TestGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGame.swift; sourceTree = "<group>"; };
 		50683EE51EE478320039C140 /* GameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
-		50683EE71EE54ADF0039C140 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		50683EE91EE54B390039C140 /* TestGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGameViewController.swift; sourceTree = "<group>"; };
 		50683EEA1EE54B390039C140 /* TestGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGameViewController.xib; sourceTree = "<group>"; };
+		50683EED1EE550FD0039C140 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		50683EEE1EE550FD0039C140 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +145,8 @@
 			children = (
 				50683EDC1EE474390039C140 /* GameProtocol.swift */,
 				50683EDE1EE474610039C140 /* GameManager.swift */,
-				50683EE71EE54ADF0039C140 /* GameController.swift */,
+				50683EED1EE550FD0039C140 /* GameViewController.swift */,
+				50683EEE1EE550FD0039C140 /* GameViewController.xib */,
 				50683EE01EE474ED0039C140 /* TestGame */,
 			);
 			path = Games;
@@ -270,6 +273,7 @@
 				50683EB31EE471D50039C140 /* LaunchScreen.storyboard in Resources */,
 				50683EB01EE471D50039C140 /* Assets.xcassets in Resources */,
 				50683EAE1EE471D50039C140 /* Main.storyboard in Resources */,
+				50683EF01EE550FD0039C140 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +300,8 @@
 			files = (
 				50683EDF1EE474610039C140 /* GameManager.swift in Sources */,
 				50683EEB1EE54B390039C140 /* TestGameViewController.swift in Sources */,
-				50683EE81EE54ADF0039C140 /* GameController.swift in Sources */,
 				50683EE61EE478320039C140 /* GameTableViewController.swift in Sources */,
+				50683EEF1EE550FD0039C140 /* GameViewController.swift in Sources */,
 				50683EE21EE4754E0039C140 /* TestGame.swift in Sources */,
 				50683EA91EE471D50039C140 /* AppDelegate.swift in Sources */,
 				50683EDD1EE474390039C140 /* GameProtocol.swift in Sources */,
