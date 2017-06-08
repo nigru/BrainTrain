@@ -10,19 +10,29 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var viewStart: UIView!
-    @IBOutlet weak var lblStartTitle: UILabel!
-    @IBOutlet weak var txtViewDescription: UITextView!
+    private var isStartView: Bool = true {
+        didSet {
+            if isStartView {
+                self.txtView.isHidden = false
+                self.lblScore.isHidden = true
+                self.btn.setTitle("Start", for: UIControlState.normal)
+            } else {
+                self.txtView.isHidden = true
+                self.lblScore.isHidden = false
+                self.btn.setTitle("Fertig", for: UIControlState.normal)
+            }
+        }
+    }
     
-    @IBOutlet weak var viewScore: UIView!
     @IBOutlet weak var lblScore: UILabel!
+    @IBOutlet weak var txtView: UITextView!
+    @IBOutlet weak var btn: UIButton!
     
     var game: GameProtocol
     
     init(game: GameProtocol) {
         self.game = game
         super.init(nibName: "GameViewController", bundle: nil)
-        
         self.game.didEndGame = self.didEndGame
     }
     
@@ -32,12 +42,11 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewStart.isHidden = false
-        self.viewScore.isHidden = true
 
-        self.lblStartTitle.text = self.game.name
-        self.txtViewDescription.text = self.game.description
-        // Do any additional setup after loading the view.
+        self.isStartView = true
+        self.btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
+        self.title = self.game.name
+        self.txtView.text = self.game.description
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,20 +54,23 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func startGame(_ sender: Any) {
-        self.present(self.game.getViewController(), animated: true, completion: nil)
-    }
-    
-    @IBAction func closeScoreView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        self.viewStart.isHidden = false
-        self.viewScore.isHidden = true
+    @objc func btnClick() {
+        if self.isStartView {
+            self.present(self.game.getViewController(), animated: true, completion: {
+                self.isStartView = false
+            })
+            self.game.start()
+        } else {
+            if let navigationController = self.navigationController {
+                navigationController.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     private func didEndGame(score: Int) {
         self.lblScore.text = "\(self.game.score) Punkte"
-        self.viewStart.isHidden = true
-        self.viewScore.isHidden = false
         self.game.getViewController().dismiss(animated: true, completion: nil)
     }
 

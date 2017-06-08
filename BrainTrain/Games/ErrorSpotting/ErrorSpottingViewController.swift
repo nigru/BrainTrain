@@ -14,88 +14,31 @@ class ErrorSpottingViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     var game: GameProtocol?
-    var fileName: String?
-    var playTime: Int = 15
-    var imageNumber: Int?
-    
-    var imageMask: UIImage?
-    var errorAmount: [Int: Int] =  [1: 4, 2: 3]
-    var colorIdentity: [Int] = [0, -1, -1, -1, -1, -1, -1, -1]
+    var tapClosure: ((CGPoint) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.game?.start()
         
-        imageNumber = generateRandomNumber(min: 1, max: 2)
-        for index in 1...errorAmount[imageNumber!]! {
-            colorIdentity[index] = 0
-        }
-        fileName = "iPhone7pic\(imageNumber!)"
-        let image = UIImage(named: fileName!)
-        
-        imageView.image = image
-        
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { timer in
-            self.imageView.image = UIImage(named: "black")
-            Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.replaceImage), userInfo: nil, repeats: false)
-        }
-        
-        
-
-        // Do any additional setup after loading the view.
-    }
-    
-    @objc private func replaceImage () {
-        self.imageView.image = UIImage(named: "\(self.fileName!)b")
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        imageView.addGestureRecognizer(recognizer)
-        imageView.isUserInteractionEnabled = true
+        self.imageView.addGestureRecognizer(recognizer)
+        self.imageView.isUserInteractionEnabled = true
     }
     
-    @objc private func updateTime(timer: Timer) {
-        playTime -= 1
-        timeLabel.text = String(playTime)
-        if playTime <= 0 {
-            timer.invalidate()
-            var score = 100
-            score += colorIdentity[0] * -10
-            for index in 1...errorAmount[imageNumber!]! {
-                if colorIdentity[index] == 0 {
-                    score -= 100/errorAmount[imageNumber!]!
-                }
-            }
-            self.game?.score = score
-            self.game?.end()
+    func show(image: UIImage?) {
+        self.imageView.image = image
+    }
+    
+    func show(playTime: Int?) {
+        guard let playTime = playTime else {
+            self.timeLabel.text = ""
+            return
         }
+        self.timeLabel.text = "\(playTime)"
     }
-    
     
     @objc private func handleTap(recognizer: UITapGestureRecognizer) {
-        if self.imageMask == nil {
-            self.imageMask = UIImage(named: "\(self.fileName!)m")
-        }
-        
-        let location = recognizer.location(in: imageView)
-        
-        let colorRGB = imageMask?.getPixelColor(pos: CGPoint(x: location.x * 2, y: location.y * 2))
-        
-        var errorIndex: Int = 0
-        print(location.x, location.y)
-        if let color = colorRGB {
-            print(color.r, color.g, color.b)
-            if color.r > 200 {
-                errorIndex = errorIndex ^ 0b001
-            }
-            if color.g > 200 {
-                errorIndex = errorIndex ^ 0b010
-            }
-            if color.b > 200 {
-                errorIndex = errorIndex ^ 0b100
-            }
-            
-            self.colorIdentity[errorIndex] += 1
-        }
+        let location = recognizer.location(in: self.imageView)
+        self.tapClosure?(location)
     }
 
     override func didReceiveMemoryWarning() {

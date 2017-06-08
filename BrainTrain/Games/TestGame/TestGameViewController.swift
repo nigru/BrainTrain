@@ -15,7 +15,7 @@ class TestGameViewController: UIViewController {
     @IBOutlet weak var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchDown)
+        btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {

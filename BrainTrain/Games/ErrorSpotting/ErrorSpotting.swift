@@ -10,11 +10,25 @@ import UIKit
 
 class ErrorSpotting: GameProtocol {
     
+    private static let PLAY_TIME: Int = 5
+    private static let ORIGINAL_IMAGE_INTERVAL: TimeInterval = 5
+    private static let BLANK_IMAGE_INTERVAL: TimeInterval = 3
+    
     private var viewController: ErrorSpottingViewController
-    var name: String = "ErrorSpotting"
-    var description: String = "sdfklsld,.fgc"
-    var score: Int = 0
+    let name: String = "ErrorSpotting"
+    let description: String = "Dir werden nacheinander zwei Bilder gezeigt. Im zweiten Bild sind Fehler eingebaut, die du finden sollst. Tippe auf die vermeindlich fehlerhaften Stellen im Bild.\nJeder nicht gefundene Fehler kostet dich Punkte, genauso wie eine angetippte, nicht fehlerhafte Stelle.\nDu hast \(Int(ErrorSpotting.ORIGINAL_IMAGE_INTERVAL)) Sekunden Zeit dir das Original einzuprägen. Danach musst du innerhalbt von \(ErrorSpotting.PLAY_TIME) Sekunden alle Fehler finden."
     var didEndGame: ((Int) -> ())?
+    
+    var score: Int = 0
+    var playTime: Int = 0
+    
+    var fileName: String?
+    var imageNumber: Int?
+    var imageMask: UIImage?
+    let errorAmount: [Int: Int] =  [1: 4, 2: 3]
+    var colorIdentity: [Int] = [0, -1, -1, -1, -1, -1, -1, -1]
+    var timer: Timer?
+    var gameTimer: Timer?
     
     init() {
         let vc = ErrorSpottingViewController(nibName: "ErrorSpottingViewController", bundle: nil)
@@ -28,9 +42,106 @@ class ErrorSpotting: GameProtocol {
     
     func start() {
         self.score = 0
+        self.playTime = ErrorSpotting.PLAY_TIME
+        self.colorIdentity = [0, -1, -1, -1, -1, -1, -1, -1]
+        
+        self.viewController.tapClosure = nil
+        self.viewController.show(playTime: nil)
+        self.selectRandomImage()
+        self.showOriginalImage()
     }
     
     func pause() {
         // nothing
     }
+    
+    func endGame() {
+        self.gameTimer?.invalidate()
+        self.imageMask = nil
+        self.end()
+    }
+    
+    func selectRandomImage() {
+        self.imageNumber = generateRandomNumber(min: 1, max: 2)
+        for index in 1...self.errorAmount[self.imageNumber!]! {
+            self.colorIdentity[index] = 0
+        }
+    }
+    
+    func showOriginalImage() {
+        self.fileName = "iPhone7pic\(self.imageNumber!)"
+        let image = UIImage(named: self.fileName!)
+        self.viewController.show(image: image)
+        
+        self.showErrorImage(afterSeconds: ErrorSpotting.ORIGINAL_IMAGE_INTERVAL)
+    }
+    
+    func showBlankImage(forSeconds seconds: TimeInterval, completion: @escaping () -> ()) {
+        self.viewController.show(image: UIImage(named: "black"))
+        self.timer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false) { timer in
+            self.timer?.invalidate()
+            self.timer = nil
+            completion()
+        }
+    }
+    
+    func showErrorImage(afterSeconds seconds: TimeInterval) {
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false) { timer in
+            self.showBlankImage(forSeconds: ErrorSpotting.BLANK_IMAGE_INTERVAL) {
+                self.viewController.show(image: UIImage(named: "\(self.fileName!)b"))
+                self.startGameTimerAndEnableTap()
+            }
+        }
+    }
+    
+    func startGameTimerAndEnableTap() {
+        self.gameTimer?.invalidate()
+        self.viewController.show(playTime: self.playTime)
+        self.viewController.tapClosure = self.handleTap
+        self.gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTime() {
+        playTime -= 1
+        self.viewController.show(playTime: self.playTime)
+        if playTime <= 0 {
+            self.gameTimer?.invalidate()
+            var score = 100
+            score += colorIdentity[0] * -10
+            for index in 1...errorAmount[imageNumber!]! {
+                if colorIdentity[index] == 0 {
+                    score -= 100/errorAmount[imageNumber!]!
+                }
+            }
+            self.score = score
+            self.end()
+        }
+    }
+    
+    private func handleTap(location: CGPoint) {
+        if self.imageMask == nil {
+            self.imageMask = UIImage(named: "\(self.fileName!)m")
+        }
+        
+        let colorRGB = imageMask?.getPixelColor(pos: CGPoint(x: location.x * 2, y: location.y * 2))
+        
+        var errorIndex: Int = 0
+        print(location.x, location.y)
+        if let color = colorRGB {
+            print(color.r, color.g, color.b)
+            if color.r > 200 {
+                errorIndex = errorIndex ^ 0b001
+            }
+            if color.g > 200 {
+                errorIndex = errorIndex ^ 0b010
+            }
+            if color.b > 200 {
+                errorIndex = errorIndex ^ 0b100
+            }
+            
+            self.colorIdentity[errorIndex] += 1
+        }
+    }
+    
 }

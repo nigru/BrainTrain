@@ -44,7 +44,10 @@ class GameTableViewController: UITableViewController {
         
         let game = self.gameManager.getGame(index: indexPath.row)
         let gameVC = GameViewController(game: game)
-        self.present(gameVC, animated: true, completion: nil)
+//        let navController = UINavigationController(rootViewController: gameVC)
+//        self.present(navController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(gameVC, animated: true
+        )
         
     }
     
