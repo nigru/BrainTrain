@@ -47,11 +47,12 @@ class GameViewController: UIViewController {
     
     @IBAction func startGame(_ sender: Any) {
         self.present(self.game.getViewController(), animated: true, completion: nil)
-        self.game.start()
     }
     
     @IBAction func closeScoreView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        self.viewStart.isHidden = false
+        self.viewScore.isHidden = true
     }
     
     private func didEndGame(score: Int) {

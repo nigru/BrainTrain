@@ -21,9 +21,7 @@ class GameManager {
 //    }
     
     init() {
-        self.add(game: TestGame())
-        self.add(game: TestGame())
-        self.add(game: TestGame())
+        self.add(game: ErrorSpotting())
         self.add(game: TestGame())
     }
     
