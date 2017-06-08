@@ -1,0 +1,6 @@
+framework module Pods_BrainTrainTests {
+  umbrella header "Pods-BrainTrainTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

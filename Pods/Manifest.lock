@@ -1,0 +1,12 @@
+PODS:
+  - UICountingLabel (1.4.0)
+
+DEPENDENCIES:
+  - UICountingLabel
+
+SPEC CHECKSUMS:
+  UICountingLabel: ed5ce5b6d5ef278ff40d99cfa49577a30ab0c87b
+
+PODFILE CHECKSUM: 5a82827451a83d63644de6dc52a660ca3767125a
+
+COCOAPODS: 1.2.1

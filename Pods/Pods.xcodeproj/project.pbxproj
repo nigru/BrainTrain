@@ -1,0 +1,862 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0104B58398FDA70764CBE601A4396448 /* Pods-BrainTrainTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E73A408FD126EA1F2AFC93148CAEA /* Pods-BrainTrainTests-dummy.m */; };
+		176A803585D6453F3D618E7184CD993A /* Pods-BrainTrainUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0789538D4B62E32CDAF9FD255DA5BF00 /* Pods-BrainTrainUITests-dummy.m */; };
+		18FCE4239C67625B3BF0D4C061EB9F9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		20B560E9840F650ABEFB5FEFD35B8419 /* UICountingLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C390EDF0AAB9BD3C080530CD1BBD8C5F /* UICountingLabel-dummy.m */; };
+		2183EBF45198F5613C6121F991EABBB4 /* UICountingLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6402EE66D9FBEE4F96652C84BFAFBE0 /* UICountingLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		466381A4286750213D56E7517D3B71D9 /* Pods-BrainTrainUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15A1FFFAA0268DD68E5EF99DB33265D7 /* Pods-BrainTrainUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51DBA0F6654BDCF6520AE2A4C80BFA5B /* Pods-BrainTrain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE6E62ED11A15DC4BE1C73E9808C5BA8 /* Pods-BrainTrain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		628590C38FDDDDD4D4E0AE3F6A3B6FF6 /* Pods-BrainTrain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CF7CBB7D57A4CF6A7ED4AE61FD9955 /* Pods-BrainTrain-dummy.m */; };
+		6B92698B46DC512EF56555816ABDE227 /* UICountingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D4BC17D92FC4DCF20B03295F65F576F6 /* UICountingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7813E69F69BFBA0BA07C7C6390E812E3 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E14CA6AC3359B6BCF2D2C4E16F3D73 /* UICountingLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8A579B7FBD5AA9120AE7E593850271D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		B568D9D40990750F1023803784882654 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C2987593B6C4F14EF70D5C0988B0B56D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C9CDCC535F386AA1895E25CD5B8A617C /* Pods-BrainTrainTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FAE24EAC8EECB0F548E06DC556C75BC /* Pods-BrainTrainTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		470EB89AC42B29B61B320FC49CA3BA49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A4B81AB3764963A134CAA89A3C60E4C;
+			remoteInfo = UICountingLabel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05F68F63973EC409C2B3838219D042CA /* Pods_BrainTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BrainTrain.framework; path = "Pods-BrainTrain.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0789538D4B62E32CDAF9FD255DA5BF00 /* Pods-BrainTrainUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BrainTrainUITests-dummy.m"; sourceTree = "<group>"; };
+		0B77FEF39623A41BCC2CFD424F79FF95 /* Pods-BrainTrainTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BrainTrainTests.modulemap"; sourceTree = "<group>"; };
+		0DAAECE9232170ADA4474950DA528F95 /* UICountingLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = UICountingLabel.modulemap; sourceTree = "<group>"; };
+		135F2BCA831E883AD40E026229D635BD /* Pods-BrainTrain-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BrainTrain-acknowledgements.markdown"; sourceTree = "<group>"; };
+		15A1FFFAA0268DD68E5EF99DB33265D7 /* Pods-BrainTrainUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BrainTrainUITests-umbrella.h"; sourceTree = "<group>"; };
+		20CF7CBB7D57A4CF6A7ED4AE61FD9955 /* Pods-BrainTrain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BrainTrain-dummy.m"; sourceTree = "<group>"; };
+		23584E311EF7EA44B23D3CBC46337260 /* Pods-BrainTrain-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BrainTrain-acknowledgements.plist"; sourceTree = "<group>"; };
+		2DE1E55ACE4C820A7110F3C653AD1873 /* UICountingLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UICountingLabel.xcconfig; sourceTree = "<group>"; };
+		3EEC1D5A0369E2A154CE46120CF56D25 /* Pods-BrainTrain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BrainTrain.modulemap"; sourceTree = "<group>"; };
+		3F7CC5909C62AC6D449D0C7258FEF740 /* UICountingLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICountingLabel-prefix.pch"; sourceTree = "<group>"; };
+		42DE0215ACDFBD92E653535A8F933325 /* Pods-BrainTrainUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BrainTrainUITests.modulemap"; sourceTree = "<group>"; };
+		46C18ACAF0AF62DCBC54ECD40DA92A0C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B036C5878194CC010C97FAD02415701 /* Pods-BrainTrainUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainTrainUITests-resources.sh"; sourceTree = "<group>"; };
+		50D36AC970E7773C87C619C1EC101E1D /* Pods-BrainTrainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainTrainTests.debug.xcconfig"; sourceTree = "<group>"; };
+		58A0F95F1B831C26E85E0AD9BDE3A63F /* Pods-BrainTrainUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainTrainUITests.release.xcconfig"; sourceTree = "<group>"; };
+		58E14CA6AC3359B6BCF2D2C4E16F3D73 /* UICountingLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6D28D31A2CB497C913CE3F134D32704D /* Pods-BrainTrainTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BrainTrainTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6D8E73A408FD126EA1F2AFC93148CAEA /* Pods-BrainTrainTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BrainTrainTests-dummy.m"; sourceTree = "<group>"; };
+		6DC91D858012B2A20FCEB5702E350F71 /* Pods-BrainTrainTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BrainTrainTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6FAE24EAC8EECB0F548E06DC556C75BC /* Pods-BrainTrainTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BrainTrainTests-umbrella.h"; sourceTree = "<group>"; };
+		76D21E16BED1E30E65395C394A9864AC /* UICountingLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UICountingLabel.framework; path = UICountingLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85ABAEAA335FCAC57428EE5C228158F0 /* Pods-BrainTrain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainTrain.release.xcconfig"; sourceTree = "<group>"; };
+		8A49A3806C6D32D1EB80735B713C62FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		917FB81580328B873C96746937B10356 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9510302A83EBDE5653A0FE55C4977E7C /* Pods-BrainTrainTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainTrainTests-resources.sh"; sourceTree = "<group>"; };
+		9CB3EFA218F5C9E7C217312B5021C191 /* Pods-BrainTrain-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainTrain-frameworks.sh"; sourceTree = "<group>"; };
+		A04289C3055E90F92E925CD2A11ABDED /* Pods-BrainTrainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainTrainTests.release.xcconfig"; sourceTree = "<group>"; };
+		A28D846E29AB4517AB5E15C0038DF9EB /* Pods_BrainTrainUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BrainTrainUITests.framework; path = "Pods-BrainTrainUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B53F575FB40C513C506E97401DF54AAE /* Pods-BrainTrain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainTrain.debug.xcconfig"; sourceTree = "<group>"; };
+		B6402EE66D9FBEE4F96652C84BFAFBE0 /* UICountingLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICountingLabel-umbrella.h"; sourceTree = "<group>"; };
+		BE6E62ED11A15DC4BE1C73E9808C5BA8 /* Pods-BrainTrain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BrainTrain-umbrella.h"; sourceTree = "<group>"; };
+		BFE3C5C6C9E30AFCB17A959D985CDC3E /* Pods-BrainTrainUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BrainTrainUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2B20270679D42E23BBF188700A8260E /* Pods-BrainTrain-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainTrain-resources.sh"; sourceTree = "<group>"; };
+		C390EDF0AAB9BD3C080530CD1BBD8C5F /* UICountingLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICountingLabel-dummy.m"; sourceTree = "<group>"; };
+		C4AB66640B33BE1535133AE3688D7D18 /* Pods-BrainTrainUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BrainTrainUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CA34D76D9F5BD79B5DF700073B6E1209 /* Pods-BrainTrainTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainTrainTests-frameworks.sh"; sourceTree = "<group>"; };
+		CB3D79320B49835F0896002C65F32810 /* Pods-BrainTrainUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BrainTrainUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D391310D634F681720BE464D83AD863F /* Pods_BrainTrainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BrainTrainTests.framework; path = "Pods-BrainTrainTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BC17D92FC4DCF20B03295F65F576F6 /* UICountingLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
+		DFEE086FFC080206BE192E10F54305EE /* Pods-BrainTrainUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BrainTrainUITests-frameworks.sh"; sourceTree = "<group>"; };
+		F06F8C3FF8D4C0326082F6FCCDFFC887 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		54EE5B0EB8E4A6B5EE5B6631F0498111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2987593B6C4F14EF70D5C0988B0B56D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77EBC2769360F18DCB2A003EFF2B769E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B568D9D40990750F1023803784882654 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD92608398549F356B2DBB3D8DDA38A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A579B7FBD5AA9120AE7E593850271D7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB43085F07E6F8357DAC719EC3D8266F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18FCE4239C67625B3BF0D4C061EB9F9F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D0C1FB3865E94FC07D305CF378D923D /* Pods-BrainTrainTests */ = {
+			isa = PBXGroup;
+			children = (
+				46C18ACAF0AF62DCBC54ECD40DA92A0C /* Info.plist */,
+				0B77FEF39623A41BCC2CFD424F79FF95 /* Pods-BrainTrainTests.modulemap */,
+				6DC91D858012B2A20FCEB5702E350F71 /* Pods-BrainTrainTests-acknowledgements.markdown */,
+				6D28D31A2CB497C913CE3F134D32704D /* Pods-BrainTrainTests-acknowledgements.plist */,
+				6D8E73A408FD126EA1F2AFC93148CAEA /* Pods-BrainTrainTests-dummy.m */,
+				CA34D76D9F5BD79B5DF700073B6E1209 /* Pods-BrainTrainTests-frameworks.sh */,
+				9510302A83EBDE5653A0FE55C4977E7C /* Pods-BrainTrainTests-resources.sh */,
+				6FAE24EAC8EECB0F548E06DC556C75BC /* Pods-BrainTrainTests-umbrella.h */,
+				50D36AC970E7773C87C619C1EC101E1D /* Pods-BrainTrainTests.debug.xcconfig */,
+				A04289C3055E90F92E925CD2A11ABDED /* Pods-BrainTrainTests.release.xcconfig */,
+			);
+			name = "Pods-BrainTrainTests";
+			path = "Target Support Files/Pods-BrainTrainTests";
+			sourceTree = "<group>";
+		};
+		4785BDF96BD171EE79F43DC978438E2E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A49A3806C6D32D1EB80735B713C62FC /* Info.plist */,
+				0DAAECE9232170ADA4474950DA528F95 /* UICountingLabel.modulemap */,
+				2DE1E55ACE4C820A7110F3C653AD1873 /* UICountingLabel.xcconfig */,
+				C390EDF0AAB9BD3C080530CD1BBD8C5F /* UICountingLabel-dummy.m */,
+				3F7CC5909C62AC6D449D0C7258FEF740 /* UICountingLabel-prefix.pch */,
+				B6402EE66D9FBEE4F96652C84BFAFBE0 /* UICountingLabel-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UICountingLabel";
+			sourceTree = "<group>";
+		};
+		6C321B4ED95B686C1FBD661338CFC9DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05F68F63973EC409C2B3838219D042CA /* Pods_BrainTrain.framework */,
+				D391310D634F681720BE464D83AD863F /* Pods_BrainTrainTests.framework */,
+				A28D846E29AB4517AB5E15C0038DF9EB /* Pods_BrainTrainUITests.framework */,
+				76D21E16BED1E30E65395C394A9864AC /* UICountingLabel.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				EB01796D8B8ABBB9529B519B17B0DC9A /* Pods */,
+				6C321B4ED95B686C1FBD661338CFC9DD /* Products */,
+				A88BBEADA236FD0FAAF254363C1AE016 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A88BBEADA236FD0FAAF254363C1AE016 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3203701D665E1FE7D5DB91E184CC56B /* Pods-BrainTrain */,
+				1D0C1FB3865E94FC07D305CF378D923D /* Pods-BrainTrainTests */,
+				ED3CE99CFD071BB81435D0B8D12D5E13 /* Pods-BrainTrainUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3203701D665E1FE7D5DB91E184CC56B /* Pods-BrainTrain */ = {
+			isa = PBXGroup;
+			children = (
+				917FB81580328B873C96746937B10356 /* Info.plist */,
+				3EEC1D5A0369E2A154CE46120CF56D25 /* Pods-BrainTrain.modulemap */,
+				135F2BCA831E883AD40E026229D635BD /* Pods-BrainTrain-acknowledgements.markdown */,
+				23584E311EF7EA44B23D3CBC46337260 /* Pods-BrainTrain-acknowledgements.plist */,
+				20CF7CBB7D57A4CF6A7ED4AE61FD9955 /* Pods-BrainTrain-dummy.m */,
+				9CB3EFA218F5C9E7C217312B5021C191 /* Pods-BrainTrain-frameworks.sh */,
+				C2B20270679D42E23BBF188700A8260E /* Pods-BrainTrain-resources.sh */,
+				BE6E62ED11A15DC4BE1C73E9808C5BA8 /* Pods-BrainTrain-umbrella.h */,
+				B53F575FB40C513C506E97401DF54AAE /* Pods-BrainTrain.debug.xcconfig */,
+				85ABAEAA335FCAC57428EE5C228158F0 /* Pods-BrainTrain.release.xcconfig */,
+			);
+			name = "Pods-BrainTrain";
+			path = "Target Support Files/Pods-BrainTrain";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D8368351B4C565C1163F6AB09EB9690E /* UICountingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				D4BC17D92FC4DCF20B03295F65F576F6 /* UICountingLabel.h */,
+				58E14CA6AC3359B6BCF2D2C4E16F3D73 /* UICountingLabel.m */,
+				4785BDF96BD171EE79F43DC978438E2E /* Support Files */,
+			);
+			name = UICountingLabel;
+			path = UICountingLabel;
+			sourceTree = "<group>";
+		};
+		EB01796D8B8ABBB9529B519B17B0DC9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8368351B4C565C1163F6AB09EB9690E /* UICountingLabel */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED3CE99CFD071BB81435D0B8D12D5E13 /* Pods-BrainTrainUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F06F8C3FF8D4C0326082F6FCCDFFC887 /* Info.plist */,
+				42DE0215ACDFBD92E653535A8F933325 /* Pods-BrainTrainUITests.modulemap */,
+				CB3D79320B49835F0896002C65F32810 /* Pods-BrainTrainUITests-acknowledgements.markdown */,
+				C4AB66640B33BE1535133AE3688D7D18 /* Pods-BrainTrainUITests-acknowledgements.plist */,
+				0789538D4B62E32CDAF9FD255DA5BF00 /* Pods-BrainTrainUITests-dummy.m */,
+				DFEE086FFC080206BE192E10F54305EE /* Pods-BrainTrainUITests-frameworks.sh */,
+				4B036C5878194CC010C97FAD02415701 /* Pods-BrainTrainUITests-resources.sh */,
+				15A1FFFAA0268DD68E5EF99DB33265D7 /* Pods-BrainTrainUITests-umbrella.h */,
+				BFE3C5C6C9E30AFCB17A959D985CDC3E /* Pods-BrainTrainUITests.debug.xcconfig */,
+				58A0F95F1B831C26E85E0AD9BDE3A63F /* Pods-BrainTrainUITests.release.xcconfig */,
+			);
+			name = "Pods-BrainTrainUITests";
+			path = "Target Support Files/Pods-BrainTrainUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4E98610BBC950373497873E70B5DE11D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9CDCC535F386AA1895E25CD5B8A617C /* Pods-BrainTrainTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FA297A9A3454214E1085ECE8B3E6F8E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				466381A4286750213D56E7517D3B71D9 /* Pods-BrainTrainUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9858E3D5EB46E267C837E181F85D59D1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2183EBF45198F5613C6121F991EABBB4 /* UICountingLabel-umbrella.h in Headers */,
+				6B92698B46DC512EF56555816ABDE227 /* UICountingLabel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8B25B9DFD8829A53EEEA403424709B2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51DBA0F6654BDCF6520AE2A4C80BFA5B /* Pods-BrainTrain-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		321CD5C4EFFDAF818E444F75DD4D18D6 /* Pods-BrainTrainUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 483551E05C3D2C874EC89E01C81DC870 /* Build configuration list for PBXNativeTarget "Pods-BrainTrainUITests" */;
+			buildPhases = (
+				E5B99D59FCCA127F5024BF060F0F5114 /* Sources */,
+				9BD92608398549F356B2DBB3D8DDA38A /* Frameworks */,
+				5FA297A9A3454214E1085ECE8B3E6F8E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-BrainTrainUITests";
+			productName = "Pods-BrainTrainUITests";
+			productReference = A28D846E29AB4517AB5E15C0038DF9EB /* Pods_BrainTrainUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3788E77630A4A0DB245A204FF0882227 /* Pods-BrainTrain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F0CC0E4D56140C953D27D2F2A90EA9B /* Build configuration list for PBXNativeTarget "Pods-BrainTrain" */;
+			buildPhases = (
+				519B3AC249F755979646D8C81758763E /* Sources */,
+				BB43085F07E6F8357DAC719EC3D8266F /* Frameworks */,
+				C8B25B9DFD8829A53EEEA403424709B2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5CCAA17DA01F89A9C7C8686A9259FC8 /* PBXTargetDependency */,
+			);
+			name = "Pods-BrainTrain";
+			productName = "Pods-BrainTrain";
+			productReference = 05F68F63973EC409C2B3838219D042CA /* Pods_BrainTrain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4A4B81AB3764963A134CAA89A3C60E4C /* UICountingLabel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CF22457B6D2728643860F5A3890D151 /* Build configuration list for PBXNativeTarget "UICountingLabel" */;
+			buildPhases = (
+				2BAA43C16296EF40038E3CC34779CCB1 /* Sources */,
+				77EBC2769360F18DCB2A003EFF2B769E /* Frameworks */,
+				9858E3D5EB46E267C837E181F85D59D1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UICountingLabel;
+			productName = UICountingLabel;
+			productReference = 76D21E16BED1E30E65395C394A9864AC /* UICountingLabel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E5C581E2A19AAE89048711AE01145987 /* Pods-BrainTrainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1339AF3241BD1B3876582BB7004E5E32 /* Build configuration list for PBXNativeTarget "Pods-BrainTrainTests" */;
+			buildPhases = (
+				51FBA144B5405EB912D958A25D8735A4 /* Sources */,
+				54EE5B0EB8E4A6B5EE5B6631F0498111 /* Frameworks */,
+				4E98610BBC950373497873E70B5DE11D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-BrainTrainTests";
+			productName = "Pods-BrainTrainTests";
+			productReference = D391310D634F681720BE464D83AD863F /* Pods_BrainTrainTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 6C321B4ED95B686C1FBD661338CFC9DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3788E77630A4A0DB245A204FF0882227 /* Pods-BrainTrain */,
+				E5C581E2A19AAE89048711AE01145987 /* Pods-BrainTrainTests */,
+				321CD5C4EFFDAF818E444F75DD4D18D6 /* Pods-BrainTrainUITests */,
+				4A4B81AB3764963A134CAA89A3C60E4C /* UICountingLabel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2BAA43C16296EF40038E3CC34779CCB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20B560E9840F650ABEFB5FEFD35B8419 /* UICountingLabel-dummy.m in Sources */,
+				7813E69F69BFBA0BA07C7C6390E812E3 /* UICountingLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		519B3AC249F755979646D8C81758763E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				628590C38FDDDDD4D4E0AE3F6A3B6FF6 /* Pods-BrainTrain-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51FBA144B5405EB912D958A25D8735A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0104B58398FDA70764CBE601A4396448 /* Pods-BrainTrainTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5B99D59FCCA127F5024BF060F0F5114 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				176A803585D6453F3D618E7184CD993A /* Pods-BrainTrainUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5CCAA17DA01F89A9C7C8686A9259FC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UICountingLabel;
+			target = 4A4B81AB3764963A134CAA89A3C60E4C /* UICountingLabel */;
+			targetProxy = 470EB89AC42B29B61B320FC49CA3BA49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		163D87BE96A63549B0EACF1CC31A2E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		207210B3CC18C8A24BA3870A7024B2CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A04289C3055E90F92E925CD2A11ABDED /* Pods-BrainTrainTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BrainTrainTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BrainTrainTests/Pods-BrainTrainTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BrainTrainTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2D8E48E4F82535D40C59420C99DA3D13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE3C5C6C9E30AFCB17A959D985CDC3E /* Pods-BrainTrainUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BrainTrainUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BrainTrainUITests/Pods-BrainTrainUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BrainTrainUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2F61413A0DABE3D653C241E04C7A7734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B53F575FB40C513C506E97401DF54AAE /* Pods-BrainTrain.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BrainTrain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BrainTrain/Pods-BrainTrain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BrainTrain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		39EE0FBD768D496E6EC4B542467533AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50D36AC970E7773C87C619C1EC101E1D /* Pods-BrainTrainTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BrainTrainTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BrainTrainTests/Pods-BrainTrainTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BrainTrainTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		51B71710A5F2FB9AC96EF9A89AB3542A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85ABAEAA335FCAC57428EE5C228158F0 /* Pods-BrainTrain.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BrainTrain/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BrainTrain/Pods-BrainTrain.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BrainTrain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		707B86CFB21B645E37109F39754D4051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B53EAC9C65663D263A5F377A2CE6B65C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58A0F95F1B831C26E85E0AD9BDE3A63F /* Pods-BrainTrainUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BrainTrainUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BrainTrainUITests/Pods-BrainTrainUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BrainTrainUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E996D292858A21DBC669A2DE145BF55E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DE1E55ACE4C820A7110F3C653AD1873 /* UICountingLabel.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UICountingLabel/UICountingLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICountingLabel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UICountingLabel/UICountingLabel.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UICountingLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDA566A4AC7C2EF92124C4F6B7642F20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DE1E55ACE4C820A7110F3C653AD1873 /* UICountingLabel.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UICountingLabel/UICountingLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICountingLabel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UICountingLabel/UICountingLabel.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = UICountingLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F0CC0E4D56140C953D27D2F2A90EA9B /* Build configuration list for PBXNativeTarget "Pods-BrainTrain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F61413A0DABE3D653C241E04C7A7734 /* Debug */,
+				51B71710A5F2FB9AC96EF9A89AB3542A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1339AF3241BD1B3876582BB7004E5E32 /* Build configuration list for PBXNativeTarget "Pods-BrainTrainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39EE0FBD768D496E6EC4B542467533AA /* Debug */,
+				207210B3CC18C8A24BA3870A7024B2CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CF22457B6D2728643860F5A3890D151 /* Build configuration list for PBXNativeTarget "UICountingLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDA566A4AC7C2EF92124C4F6B7642F20 /* Debug */,
+				E996D292858A21DBC669A2DE145BF55E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				163D87BE96A63549B0EACF1CC31A2E90 /* Debug */,
+				707B86CFB21B645E37109F39754D4051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		483551E05C3D2C874EC89E01C81DC870 /* Build configuration list for PBXNativeTarget "Pods-BrainTrainUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8E48E4F82535D40C59420C99DA3D13 /* Debug */,
+				B53EAC9C65663D263A5F377A2CE6B65C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UICountingLabel
 
 class GameViewController: UIViewController {
     
@@ -24,7 +25,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var lblScore: UILabel!
+    @IBOutlet weak var lblScore: UICountingLabel!
     @IBOutlet weak var txtView: UITextView!
     @IBOutlet weak var btn: UIButton!
     
@@ -43,6 +44,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.lblScore.format = "%d Punkte"
         self.isStartView = true
         self.btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
         self.title = self.game.name
@@ -70,8 +72,9 @@ class GameViewController: UIViewController {
     }
     
     private func didEndGame(score: Int) {
-        self.lblScore.text = "\(self.game.score) Punkte"
-        self.game.getViewController().dismiss(animated: true, completion: nil)
+        self.game.getViewController().dismiss(animated: true, completion: {
+            self.lblScore.countFromZero(to: CGFloat(self.game.score))
+        })
     }
 
     /*
