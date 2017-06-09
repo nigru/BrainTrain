@@ -13,7 +13,6 @@ class ErrorSpottingViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
-    var game: GameProtocol?
     var tapClosure: ((CGPoint) -> ())?
 
     override func viewDidLoad() {
@@ -57,30 +56,4 @@ class ErrorSpottingViewController: UIViewController {
     }
     */
 
-}
-
-struct RGB {
-    let r: CGFloat
-    let g: CGFloat
-    let b: CGFloat
-}
-
-extension UIImage {
-    func getPixelColor(pos: CGPoint) -> RGB? {
-        
-        guard let cgImage = self.cgImage, let dataProvider = cgImage.dataProvider else {
-            return nil
-        }
-        
-        let pixelData = dataProvider.data
-        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-        
-        let pixelInfo: Int = ((Int(self.size.width) * Int(pos.y)) + Int(pos.x)) * 4
-        
-        let r = CGFloat(data[pixelInfo])
-        let g = CGFloat(data[pixelInfo+1])
-        let b = CGFloat(data[pixelInfo+2])
-        
-        return RGB(r: r, g: g, b: b)
-    }  
 }

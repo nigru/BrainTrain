@@ -31,9 +31,7 @@ class ErrorSpotting: GameProtocol {
     var gameTimer: Timer?
     
     init() {
-        let vc = ErrorSpottingViewController(nibName: "ErrorSpottingViewController", bundle: nil)
-        self.viewController = vc
-        vc.game = self
+        self.viewController = ErrorSpottingViewController(nibName: "ErrorSpottingViewController", bundle: nil)
     }
     
     func getViewController() -> UIViewController {
@@ -143,5 +141,30 @@ class ErrorSpotting: GameProtocol {
             self.colorIdentity[errorIndex] += 1
         }
     }
-    
+}
+
+struct RGB {
+    let r: CGFloat
+    let g: CGFloat
+    let b: CGFloat
+}
+
+extension UIImage {
+    func getPixelColor(pos: CGPoint) -> RGB? {
+        
+        guard let cgImage = self.cgImage, let dataProvider = cgImage.dataProvider else {
+            return nil
+        }
+        
+        let pixelData = dataProvider.data
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        let pixelInfo: Int = ((Int(self.size.width) * Int(pos.y)) + Int(pos.x)) * 4
+        
+        let r = CGFloat(data[pixelInfo])
+        let g = CGFloat(data[pixelInfo+1])
+        let b = CGFloat(data[pixelInfo+2])
+        
+        return RGB(r: r, g: g, b: b)
+    }
 }
