@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import UICountingLabel
 
 class GameViewController: UIViewController {
@@ -72,19 +73,14 @@ class GameViewController: UIViewController {
     }
     
     private func didEndGame(score: Int) {
+        self.saveScore()
         self.game.getViewController().dismiss(animated: true, completion: {
             self.lblScore.countFromZero(to: CGFloat(self.game.score))
         })
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func saveScore() {
+        let gameScore = GameScore(game: self.game.name, score: self.game.score, date: Date())
+        gameScore.save()
     }
-    */
-
 }

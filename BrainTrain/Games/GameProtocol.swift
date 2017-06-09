@@ -19,13 +19,17 @@ protocol GameProtocol {
     func pause()
     func getViewController() -> UIViewController
     
-}
+    }
 
 extension GameProtocol {
     func end() {
         if let didEndGame = self.didEndGame {
             didEndGame(self.score)
         }
+    }
+    
+    func fetchScores() -> [GameScore] {
+        return GameScore.fetchScoresFor(game: self)
     }
 }
 
