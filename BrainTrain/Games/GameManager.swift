@@ -15,17 +15,13 @@ class GameManager {
         return GameManager.instance
     }
     
-//    public static func registerGame(game: GameProtocol) -> Bool {
-//        GameManager.getInstance().add(game: game)
-//        return true
-//    }
+    private var games: [GameProtocol] = []
     
     init() {
         self.add(game: ErrorSpotting())
+        self.add(game: SpeedMathGame())
         self.add(game: TestGame())
     }
-    
-    var games: [GameProtocol] = []
     
     private func add(game: GameProtocol) {
         self.games.append(game)
