@@ -18,8 +18,7 @@ protocol GameProtocol {
     func start()
     func pause()
     func getViewController() -> UIViewController
-    
-    }
+}
 
 extension GameProtocol {
     func end() {
@@ -29,7 +28,7 @@ extension GameProtocol {
     }
     
     func fetchScores() -> [GameScore] {
-        return GameScore.fetchScoresFor(game: self)
+        return GameScore.fetch(forGame: self)
     }
 }
 

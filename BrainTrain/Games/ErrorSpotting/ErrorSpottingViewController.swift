@@ -11,6 +11,7 @@ import UIKit
 class ErrorSpottingViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var maskView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
     var tapClosure: ((CGPoint) -> ())?

@@ -21,7 +21,7 @@ struct GameScore {
         return GameScore(game: game, score: score, date: date)
     }
     
-    static func fetchScoresFor(game: GameProtocol) -> [GameScore] {
+    static func fetch(forGame game: GameProtocol) -> [GameScore] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return []
         }

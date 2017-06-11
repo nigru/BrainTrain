@@ -33,6 +33,7 @@
 		507889231EEAD29A00C66E23 /* UIViewShake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889221EEAD29A00C66E23 /* UIViewShake.swift */; };
 		5078892B1EEAE14500C66E23 /* BrainTrain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 507889291EEAE14500C66E23 /* BrainTrain.xcdatamodeld */; };
 		507889371EEAEF0D00C66E23 /* GameScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889361EEAEF0D00C66E23 /* GameScore.swift */; };
+		507889391EED400800C66E23 /* ErrorSpotting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507889381EED400800C66E23 /* ErrorSpotting.xcassets */; };
 		7C8EF948A73593F9F66EE8A0 /* Pods_BrainTrainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9B9DA999A77DA26C2F54BF /* Pods_BrainTrainTests.framework */; };
 		AB82728D9982A4BDBAA79802 /* Pods_BrainTrainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2357BCE7C777EED3E0E0812 /* Pods_BrainTrainUITests.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		507889221EEAD29A00C66E23 /* UIViewShake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewShake.swift; sourceTree = "<group>"; };
 		5078892A1EEAE14500C66E23 /* BrainTrain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BrainTrain.xcdatamodel; sourceTree = "<group>"; };
 		507889361EEAEF0D00C66E23 /* GameScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScore.swift; sourceTree = "<group>"; };
+		507889381EED400800C66E23 /* ErrorSpotting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ErrorSpotting.xcassets; sourceTree = "<group>"; };
 		54940087EBC3B78A815C149C /* Pods-BrainTrainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainTrainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrainTrainTests/Pods-BrainTrainTests.release.xcconfig"; sourceTree = "<group>"; };
 		556AC2A36485E7699A2BA6C0 /* Pods_BrainTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainTrain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9B9DA999A77DA26C2F54BF /* Pods_BrainTrainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainTrainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				50683EE51EE478320039C140 /* GameTableViewController.swift */,
 				50683EAC1EE471D50039C140 /* Main.storyboard */,
 				50683EAF1EE471D50039C140 /* Assets.xcassets */,
+				507889381EED400800C66E23 /* ErrorSpotting.xcassets */,
 				50683EB11EE471D50039C140 /* LaunchScreen.storyboard */,
 				50683EB41EE471D50039C140 /* Info.plist */,
 				507889291EEAE14500C66E23 /* BrainTrain.xcdatamodeld */,
@@ -380,6 +383,7 @@
 				50683EEC1EE54B390039C140 /* TestGameViewController.xib in Resources */,
 				50683EB31EE471D50039C140 /* LaunchScreen.storyboard in Resources */,
 				50683EB01EE471D50039C140 /* Assets.xcassets in Resources */,
+				507889391EED400800C66E23 /* ErrorSpotting.xcassets in Resources */,
 				50683EF71EE56A140039C140 /* ErrorSpottingViewController.xib in Resources */,
 				50683EAE1EE471D50039C140 /* Main.storyboard in Resources */,
 				50683EF01EE550FD0039C140 /* GameViewController.xib in Resources */,
