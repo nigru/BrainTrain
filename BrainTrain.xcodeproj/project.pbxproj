@@ -34,6 +34,9 @@
 		5078892B1EEAE14500C66E23 /* BrainTrain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 507889291EEAE14500C66E23 /* BrainTrain.xcdatamodeld */; };
 		507889371EEAEF0D00C66E23 /* GameScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889361EEAEF0D00C66E23 /* GameScore.swift */; };
 		507889391EED400800C66E23 /* ErrorSpotting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507889381EED400800C66E23 /* ErrorSpotting.xcassets */; };
+		5078893C1EED695400C66E23 /* ColoredWordsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5078893B1EED695400C66E23 /* ColoredWordsGame.swift */; };
+		507889431EED6B7300C66E23 /* ColoredWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889411EED6B7300C66E23 /* ColoredWordsViewController.swift */; };
+		507889441EED6B7300C66E23 /* ColoredWordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507889421EED6B7300C66E23 /* ColoredWordsViewController.xib */; };
 		7C8EF948A73593F9F66EE8A0 /* Pods_BrainTrainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9B9DA999A77DA26C2F54BF /* Pods_BrainTrainTests.framework */; };
 		AB82728D9982A4BDBAA79802 /* Pods_BrainTrainUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2357BCE7C777EED3E0E0812 /* Pods_BrainTrainUITests.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +94,9 @@
 		5078892A1EEAE14500C66E23 /* BrainTrain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BrainTrain.xcdatamodel; sourceTree = "<group>"; };
 		507889361EEAEF0D00C66E23 /* GameScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScore.swift; sourceTree = "<group>"; };
 		507889381EED400800C66E23 /* ErrorSpotting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ErrorSpotting.xcassets; sourceTree = "<group>"; };
+		5078893B1EED695400C66E23 /* ColoredWordsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredWordsGame.swift; sourceTree = "<group>"; };
+		507889411EED6B7300C66E23 /* ColoredWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredWordsViewController.swift; sourceTree = "<group>"; };
+		507889421EED6B7300C66E23 /* ColoredWordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColoredWordsViewController.xib; sourceTree = "<group>"; };
 		54940087EBC3B78A815C149C /* Pods-BrainTrainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainTrainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrainTrainTests/Pods-BrainTrainTests.release.xcconfig"; sourceTree = "<group>"; };
 		556AC2A36485E7699A2BA6C0 /* Pods_BrainTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainTrain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9B9DA999A77DA26C2F54BF /* Pods_BrainTrainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BrainTrainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +199,7 @@
 				50683EDE1EE474610039C140 /* GameManager.swift */,
 				50683EED1EE550FD0039C140 /* GameViewController.swift */,
 				50683EEE1EE550FD0039C140 /* GameViewController.xib */,
+				5078893A1EED693400C66E23 /* ColoredWords */,
 				50683EF11EE569BE0039C140 /* ErrorSpotting */,
 				507889181EEACA4800C66E23 /* SpeedMath */,
 				50683EE01EE474ED0039C140 /* TestGame */,
@@ -237,6 +244,16 @@
 				507889221EEAD29A00C66E23 /* UIViewShake.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5078893A1EED693400C66E23 /* ColoredWords */ = {
+			isa = PBXGroup;
+			children = (
+				5078893B1EED695400C66E23 /* ColoredWordsGame.swift */,
+				507889411EED6B7300C66E23 /* ColoredWordsViewController.swift */,
+				507889421EED6B7300C66E23 /* ColoredWordsViewController.xib */,
+			);
+			path = ColoredWords;
 			sourceTree = "<group>";
 		};
 		5C932B816352F350EE1FC7D2 /* Pods */ = {
@@ -385,6 +402,7 @@
 				50683EB01EE471D50039C140 /* Assets.xcassets in Resources */,
 				507889391EED400800C66E23 /* ErrorSpotting.xcassets in Resources */,
 				50683EF71EE56A140039C140 /* ErrorSpottingViewController.xib in Resources */,
+				507889441EED6B7300C66E23 /* ColoredWordsViewController.xib in Resources */,
 				50683EAE1EE471D50039C140 /* Main.storyboard in Resources */,
 				50683EF01EE550FD0039C140 /* GameViewController.xib in Resources */,
 			);
@@ -549,8 +567,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507889431EED6B7300C66E23 /* ColoredWordsViewController.swift in Sources */,
 				507889371EEAEF0D00C66E23 /* GameScore.swift in Sources */,
 				50683EF31EE569CA0039C140 /* ErrorSpotting.swift in Sources */,
+				5078893C1EED695400C66E23 /* ColoredWordsGame.swift in Sources */,
 				507889231EEAD29A00C66E23 /* UIViewShake.swift in Sources */,
 				507889201EEACFB000C66E23 /* Math.swift in Sources */,
 				50683EDF1EE474610039C140 /* GameManager.swift in Sources */,

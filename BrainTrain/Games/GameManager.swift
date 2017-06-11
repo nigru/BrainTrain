@@ -20,6 +20,7 @@ class GameManager {
     init() {
         self.add(game: ErrorSpotting())
         self.add(game: SpeedMathGame())
+        self.add(game: ColoredWordsGame())
         self.add(game: TestGame())
     }
     
