@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftRandom
 
 struct MathOperator {
     let str: String
@@ -23,6 +24,14 @@ struct Math: Equatable {
     
     var result: Int {
         return self.op.op(self.a, self.b)
+    }
+    
+    static func random(min: Int, max: Int, operators: [MathOperator]) -> Math {
+        let randomNum1 = Int.random(min, max)
+        let randomNum2 = Int.random(min, max)
+        let randomOperator = operators.randomItem()
+    
+        return Math(a: randomNum1, b: randomNum2, op: randomOperator!)
     }
 }
 

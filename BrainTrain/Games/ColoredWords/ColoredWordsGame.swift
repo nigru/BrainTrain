@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftRandom
 
 class ColoredWordsGame: GameProtocol {
     private var viewController: ColoredWordsViewController
@@ -39,15 +40,14 @@ class ColoredWordsGame: GameProtocol {
     
     func play () {
         
-        let randomNumber1 = generateRandomNumber(min: 0, max: farbe.count-1)
-        var randomNumber2 = generateRandomNumber(min: 0, max: farbe.count-1)
+        let randomNumber1 = Int.random(0, farbe.count - 1)
+        var randomNumber2 = Int.random(0, farbe.count - 1)
         
         while randomNumber1 == randomNumber2  {
-            randomNumber2 = generateRandomNumber(min: 0, max: farbe.count-1)
+            randomNumber2 = Int.random(0, farbe.count - 1)
         }
-        let randomNumber3 = generateRandomNumber(min: 0, max: 1)
+        let randomNumber3 = Int.random(0, 1)
         
-        viewController.leftButton.backgroundColor = farbe[randomNumber2].1
         viewController.middleLabel.text = farbe[randomNumber1].0
         viewController.middleLabel.textColor = farbe[randomNumber2].1
        
@@ -63,8 +63,6 @@ class ColoredWordsGame: GameProtocol {
             viewController.rightButton.backgroundColor = farbe[randomNumber1].1
             viewController.leftButton.backgroundColor = farbe[randomNumber2].1
         }
-        
-        
 
     }
     

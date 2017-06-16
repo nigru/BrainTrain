@@ -1,12 +1,15 @@
 PODS:
+  - SwiftRandom (1.0.0)
   - UICountingLabel (1.4.0)
 
 DEPENDENCIES:
+  - SwiftRandom
   - UICountingLabel
 
 SPEC CHECKSUMS:
+  SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
   UICountingLabel: ed5ce5b6d5ef278ff40d99cfa49577a30ab0c87b
 
-PODFILE CHECKSUM: 5a82827451a83d63644de6dc52a660ca3767125a
+PODFILE CHECKSUM: cd177c9dc36039f06aa37a6064985f780a6e7900
 
 COCOAPODS: 1.2.1

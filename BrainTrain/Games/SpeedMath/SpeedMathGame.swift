@@ -45,16 +45,16 @@ class SpeedMathGame: GameProtocol {
         self.playTime = SpeedMathGame.PLAY_TIME
         self.viewController.show(playTime: self.playTime)
         self.viewController.showKeyboard()
-        self.generateMath()
-        self.gameTimer?.invalidate()
+        self.currentMath = Math.random(min: self.min, max: self.max, operators: self.operators)
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
     func pause() {
-        
+
     }
     
     func endGame() {
+        self.gameTimer?.invalidate()
         self.end()
     }
     
@@ -65,17 +65,9 @@ class SpeedMathGame: GameProtocol {
     @objc func updateTime(timer: Timer) {
         self.playTime -= 1
         self.viewController.show(playTime: self.playTime)
-        if (playTime <= 0) {
+        if (self.playTime <= 0) {
             self.endGame()
         }
-    }
-    
-    private func generateMath() {
-        let randomNum1 = generateRandomNumber(min: self.min, max: self.max)
-        let randomNum2 = generateRandomNumber(min: self.min, max: self.max)
-        let randomOperator = generateRandomNumber(min: 0, max: self.operators.count - 1)
-        
-        self.currentMath = Math(a: randomNum1, b: randomNum2, op: operators[randomOperator])
     }
     
     private func checkMath(input: String?) -> Bool {
@@ -83,17 +75,16 @@ class SpeedMathGame: GameProtocol {
             if let input = input, let inputInt = Int(input) {
                 if currentMath == inputInt {
                     self.score += SpeedMathGame.SCORE_FOR_MATH
-                    self.generateMath()
-                    return true
                 } else {
                     self.score += SpeedMathGame.SCORE_FOR_ERROR
                     return false
                 }
+            } else {
+                return false
             }
-            return false
-        } else {
-            self.generateMath()
-            return true
         }
+        
+        self.currentMath = Math.random(min: self.min, max: self.max, operators: self.operators)
+        return true
     }
 }

@@ -9,10 +9,10 @@
 import Foundation
 
 
-func generateRandomNumber(min: Int, max: Int) -> Int {
-    let maxRandomValue = UInt32(max + 1 - min)
-    let randomNumUInt32: UInt32 = arc4random_uniform(maxRandomValue)
-    var randomNum: Int = Int(randomNumUInt32)
-    randomNum += min
-    return randomNum
-}
+//func generateRandomNumber(min: Int, max: Int) -> Int {
+//    let maxRandomValue = UInt32(max + 1 - min)
+//    let randomNumUInt32: UInt32 = arc4random_uniform(maxRandomValue)
+//    var randomNum: Int = Int(randomNumUInt32)
+//    randomNum += min
+//    return randomNum
+//}

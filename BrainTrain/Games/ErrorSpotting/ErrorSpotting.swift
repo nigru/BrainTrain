@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftRandom
 
 class ErrorSpotting: GameProtocol {
     
@@ -60,7 +61,7 @@ class ErrorSpotting: GameProtocol {
     }
     
     func selectRandomImage() {
-        self.imageNumber = generateRandomNumber(min: 1, max: self.errorAmount.count)
+        self.imageNumber = Int.random(1, self.errorAmount.count)
         for index in 1...self.errorAmount[self.imageNumber!]! {
             self.colorIdentity[index] = 0
         }
