@@ -12,6 +12,11 @@ import SwiftRandom
 struct MathOperator {
     let str: String
     let op: ((Int, Int) -> Int)
+    
+    static let add = MathOperator(str: "+", op: (+))
+    static let sub = MathOperator(str: "-", op: (-))
+    static let mult = MathOperator(str: "*", op: (*))
+    static let div = MathOperator(str: "/", op: (/))
 }
 
 struct Math: Equatable {

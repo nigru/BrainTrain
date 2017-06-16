@@ -32,8 +32,7 @@ class SpeedMathGame: GameProtocol {
     let min, max: Int
     
     init() {
-//        self.operators = [MathOperator(str: "+", op: (+)), MathOperator(str: "-", op: (-)), MathOperator(str: "*", op: (*)), MathOperator(str: "/", op: (/))]
-        self.operators = [MathOperator(str: "+", op: (+)), MathOperator(str: "-", op: (-))]
+        self.operators = [MathOperator.add, MathOperator.sub]
         self.min = 0
         self.max = 10
         self.viewController = SpeedMathViewController(nibName: "SpeedMathViewController", bundle: nil)
