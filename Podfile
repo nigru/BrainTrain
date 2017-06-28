@@ -8,6 +8,7 @@ target 'BrainTrain' do
   # Pods for BrainTrain
   pod 'UICountingLabel'
   pod 'SwiftRandom'
+  pod 'SwiftChart'
 
   target 'BrainTrainTests' do
     inherit! :search_paths

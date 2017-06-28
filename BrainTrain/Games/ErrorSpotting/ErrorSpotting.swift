@@ -39,7 +39,7 @@ class ErrorSpotting: GameProtocol {
         return self.viewController
     }
     
-    func start() {
+    func start(level: GameLevel) {
         self.score = 0
         self.playTime = ErrorSpotting.PLAY_TIME
         self.colorIdentity = [0, -1, -1, -1, -1, -1, -1, -1]
@@ -52,6 +52,10 @@ class ErrorSpotting: GameProtocol {
     
     func pause() {
         // nothing
+    }
+    
+    func resume() {
+        
     }
     
     func endGame() {

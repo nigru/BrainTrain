@@ -9,7 +9,7 @@
 import Foundation
 import SwiftRandom
 
-struct MathOperator {
+struct MathOperator: Equatable {
     let str: String
     let op: ((Int, Int) -> Int)
     
@@ -17,6 +17,10 @@ struct MathOperator {
     static let sub = MathOperator(str: "-", op: (-))
     static let mult = MathOperator(str: "*", op: (*))
     static let div = MathOperator(str: "/", op: (/))
+}
+
+func ==(a: MathOperator, b: MathOperator) -> Bool {
+    return a.str == b.str
 }
 
 struct Math: Equatable {
@@ -32,11 +36,17 @@ struct Math: Equatable {
     }
     
     static func random(min: Int, max: Int, operators: [MathOperator]) -> Math {
-        let randomNum1 = Int.random(min, max)
-        let randomNum2 = Int.random(min, max)
-        let randomOperator = operators.randomItem()
+        var randomNum1: Int
+        var randomNum2: Int
+        var randomOperator: MathOperator
+        
+        repeat {
+            randomNum1 = Int.random(min, max)
+            randomNum2 = Int.random(min, max)
+            randomOperator = operators.randomItem()!
+        } while randomOperator == MathOperator.div && randomNum2 == 0 || randomOperator == MathOperator.mult && randomNum1 == 0 && randomNum2 == -1
     
-        return Math(a: randomNum1, b: randomNum2, op: randomOperator!)
+        return Math(a: randomNum1, b: randomNum2, op: randomOperator)
     }
 }
 

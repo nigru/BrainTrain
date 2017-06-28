@@ -28,28 +28,51 @@ class SpeedMathGame: GameProtocol {
             self.viewController.show(math: self.currentMath)
         }
     }
-    let operators: [MathOperator]
-    let min, max: Int
+    private var operators: [MathOperator] = []
+    private var min: Int = 0
+    private var max: Int = 0
     
     init() {
-        self.operators = [MathOperator.add, MathOperator.sub]
-        self.min = 0
-        self.max = 10
         self.viewController = SpeedMathViewController(nibName: "SpeedMathViewController", bundle: nil)
         self.viewController.checkMathClosure = self.checkMath
     }
 
-    func start() {
+    func start(level: GameLevel) {
+        switch level {
+            case .medium:
+                self.operators = [MathOperator.add, MathOperator.sub]
+                self.min = 0
+                self.max = 10
+            case .hard:
+                self.operators = [MathOperator.add, MathOperator.sub]
+                self.min = -10
+                self.max = 10
+            default:
+                self.operators = [MathOperator.add, MathOperator.sub, MathOperator.mult, MathOperator.div]
+                self.min = -10
+                self.max = 10
+        }
+        
+        print(level)
+        
         self.score = 0
         self.playTime = SpeedMathGame.PLAY_TIME
         self.viewController.show(playTime: self.playTime)
         self.viewController.showKeyboard()
         self.currentMath = Math.random(min: self.min, max: self.max, operators: self.operators)
+        self.startTimer()
+    }
+    
+    private func startTimer() {
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
     func pause() {
-
+        self.gameTimer?.invalidate()
+    }
+    
+    func resume() {
+        self.startTimer()
     }
     
     func endGame() {

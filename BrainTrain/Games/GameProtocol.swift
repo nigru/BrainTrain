@@ -15,8 +15,9 @@ protocol GameProtocol {
     var score: Int { get set }
     var didEndGame: ((Int) -> ())? { get set }
     
-    func start()
+    func start(level: GameLevel)
     func pause()
+    func resume()
     func getViewController() -> UIViewController
 }
 

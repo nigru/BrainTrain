@@ -26,7 +26,7 @@ class ColoredWordsGame: GameProtocol {
         self.viewController = ColoredWordsViewController(nibName: "ColoredWordsViewController", bundle: nil)
     }
     
-    func start() {
+    func start(level: GameLevel) {
         self.viewController.leftButton.addTarget(self, action: #selector(leftButtonClick), for: UIControlEvents.touchUpInside)
         self.viewController.rightButton.addTarget(self, action: #selector(rightButtonClick), for: UIControlEvents.touchUpInside)
         
@@ -77,6 +77,10 @@ class ColoredWordsGame: GameProtocol {
     
     
     func pause() {
+        
+    }
+    
+    func resume() {
         
     }
     

@@ -89,10 +89,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftChart/SwiftChart.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftRandom/SwiftRandom.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UICountingLabel/UICountingLabel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftChart/SwiftChart.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftRandom/SwiftRandom.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UICountingLabel/UICountingLabel.framework"
 fi

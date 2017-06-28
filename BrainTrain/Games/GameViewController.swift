@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UICountingLabel
+import SwiftChart
 
 class GameViewController: UIViewController {
     
@@ -28,6 +29,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var lblScore: UICountingLabel!
     @IBOutlet weak var txtView: UITextView!
+    @IBOutlet weak var viewChart: Chart!
     @IBOutlet weak var btn: UIButton!
     
     var game: GameProtocol
@@ -50,6 +52,18 @@ class GameViewController: UIViewController {
         self.btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
         self.title = self.game.name
         self.txtView.text = self.game.description
+        
+        self.viewChart.minY = 0
+        self.viewChart.xLabelsFormatter = { _,_ in "" }
+        self.viewChart.yLabelsFormatter = { _,_ in "" }
+        let scores = Array(GameScore.fetch(forGame: self.game).suffix(10))
+        let series = ChartSeries(scores)
+        series.color = ChartColors.greenColor()
+        self.viewChart.add(series)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,12 +71,20 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func appWillResignActive() {
+        self.game.pause()
+    }
+    
+    func appDidBecomeActive() {
+        self.game.resume()
+    }
+    
     @objc func btnClick() {
         if self.isStartView {
             self.present(self.game.getViewController(), animated: true, completion: {
                 self.isStartView = false
             })
-            self.game.start()
+            self.game.start(level: .medium) // TODO level
         } else {
             if let navigationController = self.navigationController {
                 navigationController.popViewController(animated: true)
@@ -75,6 +97,13 @@ class GameViewController: UIViewController {
     private func didEndGame(score: Int) {
         self.saveScore()
         self.game.getViewController().dismiss(animated: true, completion: {
+            self.lblScore.completionBlock = {
+                let scores = Array(GameScore.fetch(forGame: self.game).suffix(10))
+                let series = ChartSeries(scores)
+                series.color = ChartColors.greenColor()
+                self.viewChart.removeAllSeries()
+                self.viewChart.add(series)
+            }
             self.lblScore.countFromZero(to: CGFloat(self.game.score))
         })
     }

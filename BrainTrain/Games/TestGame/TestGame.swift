@@ -26,12 +26,16 @@ class TestGame: GameProtocol {
         return self.viewController
     }
     
-    func start() {
+    func start(level: GameLevel) {
         self.score = 0
     }
     
     func pause() {
         // nothing
+    }
+    
+    func resume() {
+        
     }
     
 }
