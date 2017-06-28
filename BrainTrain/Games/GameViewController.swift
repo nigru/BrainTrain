@@ -84,7 +84,7 @@ class GameViewController: UIViewController {
             self.present(self.game.getViewController(), animated: true, completion: {
                 self.isStartView = false
             })
-            self.game.start(level: .medium) // TODO level
+            self.game.start(level: .hard) // TODO level
         } else {
             if let navigationController = self.navigationController {
                 navigationController.popViewController(animated: true)

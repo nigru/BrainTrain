@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColoredWordsViewController" customModule="BrainTrain" customModuleProvider="target">
             <connections>
+                <outlet property="instructor" destination="bQ6-kJ-467" id="77k-mO-O2s"/>
                 <outlet property="leftButton" destination="Kq8-Om-Gv1" id="Tmm-d3-ofO"/>
                 <outlet property="middleLabel" destination="sZI-6v-UP4" id="C0q-Na-bnj"/>
                 <outlet property="rightButton" destination="pLL-Sl-c3G" id="gec-hs-Qab"/>
@@ -23,32 +24,55 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLL-Sl-c3G">
-                    <rect key="frame" x="313" y="318" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLL-Sl-c3G">
+                    <rect key="frame" x="305" y="335" width="50" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="15O-Ai-aeH"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kq8-Om-Gv1">
-                    <rect key="frame" x="16" y="318" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kq8-Om-Gv1">
+                    <rect key="frame" x="20" y="335" width="50" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="C9X-wv-irG"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZI-6v-UP4">
-                    <rect key="frame" x="166" y="327" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZI-6v-UP4">
+                    <rect key="frame" x="78" y="335" width="219" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udd-rb-HuV">
+                    <rect key="frame" x="20" y="30" width="335" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udd-rb-HuV">
-                    <rect key="frame" x="166" y="98" width="42" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-kJ-467">
+                    <rect key="frame" x="20" y="131" width="335" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Kq8-Om-Gv1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="0Tf-Ae-lPe"/>
+                <constraint firstItem="udd-rb-HuV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="4wd-8N-Aax"/>
+                <constraint firstItem="sZI-6v-UP4" firstAttribute="leading" secondItem="Kq8-Om-Gv1" secondAttribute="trailing" constant="8" symbolic="YES" id="B4L-eo-gen"/>
+                <constraint firstItem="udd-rb-HuV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="E8U-9x-RTW"/>
+                <constraint firstItem="pLL-Sl-c3G" firstAttribute="leading" secondItem="sZI-6v-UP4" secondAttribute="trailing" constant="8" symbolic="YES" id="GDU-Vm-0kx"/>
+                <constraint firstAttribute="trailing" secondItem="udd-rb-HuV" secondAttribute="trailing" constant="20" symbolic="YES" id="HZl-K0-nOb"/>
+                <constraint firstItem="bQ6-kJ-467" firstAttribute="top" secondItem="udd-rb-HuV" secondAttribute="bottom" constant="80" id="SCk-Lz-4W5"/>
+                <constraint firstItem="Kq8-Om-Gv1" firstAttribute="top" secondItem="bQ6-kJ-467" secondAttribute="bottom" constant="180" id="XVM-Xe-3nN"/>
+                <constraint firstItem="sZI-6v-UP4" firstAttribute="top" secondItem="Kq8-Om-Gv1" secondAttribute="top" id="f0F-8k-eZO"/>
+                <constraint firstItem="pLL-Sl-c3G" firstAttribute="top" secondItem="bQ6-kJ-467" secondAttribute="bottom" constant="180" id="gbC-6j-C4g"/>
+                <constraint firstAttribute="trailing" secondItem="pLL-Sl-c3G" secondAttribute="trailing" constant="20" symbolic="YES" id="oqI-7v-EpS"/>
+                <constraint firstAttribute="trailing" secondItem="bQ6-kJ-467" secondAttribute="trailing" constant="20" symbolic="YES" id="xor-es-vFk"/>
+                <constraint firstItem="bQ6-kJ-467" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="y0Y-AS-h2b"/>
+            </constraints>
             <point key="canvasLocation" x="53.5" y="138.5"/>
         </view>
     </objects>

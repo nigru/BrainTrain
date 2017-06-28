@@ -10,6 +10,7 @@ import UIKit
 
 class ColoredWordsViewController: UIViewController {
 
+    @IBOutlet weak var instructor: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var middleLabel: UILabel!
     @IBOutlet weak var leftButton: UIButton!
