@@ -13,6 +13,7 @@ class ErrorSpottingViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var maskView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     var tapClosure: ((CGPoint) -> ())?
 
@@ -26,6 +27,14 @@ class ErrorSpottingViewController: UIViewController {
     
     func show(image: UIImage?) {
         self.imageView.image = image
+    }
+    
+    func show(errorRemaining: Int?) {
+        guard let errorRemaining = errorRemaining else {
+            self.errorLabel.text = ""
+            return
+        }
+        self.errorLabel.text = "\(errorRemaining)"
     }
     
     func show(playTime: Int?) {

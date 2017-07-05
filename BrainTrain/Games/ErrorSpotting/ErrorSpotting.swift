@@ -22,6 +22,8 @@ class ErrorSpotting: GameProtocol {
     
     var score: Int = 0
     var playTime: Int = 0
+    var remainingErrors: Int = 0
+    var level: GameLevel = .easy
     
     var fileName: String?
     var imageNumber: Int?
@@ -43,24 +45,50 @@ class ErrorSpotting: GameProtocol {
         self.score = 0
         self.playTime = ErrorSpotting.PLAY_TIME
         self.colorIdentity = [0, -1, -1, -1, -1, -1, -1, -1]
+        self.level = level
         
         self.viewController.tapClosure = nil
         self.viewController.show(playTime: nil)
+        self.viewController.show(errorRemaining: nil)
         self.selectRandomImage()
+        self.remainingErrors = self.errorAmount[self.imageNumber!]!
         self.showOriginalImage()
     }
     
     func pause() {
-        // nothing
+        self.gameTimer?.invalidate()
     }
     
     func resume() {
-        
+        self.startGameTimerAndEnableTap()
     }
     
     func endGame() {
         self.gameTimer?.invalidate()
         self.imageMask = nil
+        
+        var score: Double = 100
+        score += Double(colorIdentity[0] * -10)
+        for index in 1...errorAmount[imageNumber!]! {
+            if colorIdentity[index] == 0 {
+                score -= 100 / Double(errorAmount[imageNumber!]!)
+            }
+        }
+        
+        switch self.level {
+        case .easy:
+            playTime *= 3
+            break
+        case .medium:
+            playTime *= 2
+            break
+        default:
+            playTime *= 1
+        }
+        self.playTime -= self.colorIdentity[0]
+        self.playTime = max(0, self.playTime)
+        
+        self.score = Int(score) + self.playTime
         self.end()
     }
     
@@ -102,6 +130,7 @@ class ErrorSpotting: GameProtocol {
         self.gameTimer?.invalidate()
         self.viewController.show(playTime: self.playTime)
         self.viewController.tapClosure = self.handleTap
+        self.viewController.show(errorRemaining: self.remainingErrors)
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
@@ -109,16 +138,7 @@ class ErrorSpotting: GameProtocol {
         playTime -= 1
         self.viewController.show(playTime: self.playTime)
         if playTime <= 0 {
-            self.gameTimer?.invalidate()
-            var score = 100
-            score += colorIdentity[0] * -10
-            for index in 1...errorAmount[imageNumber!]! {
-                if colorIdentity[index] == 0 {
-                    score -= 100/errorAmount[imageNumber!]!
-                }
-            }
-            self.score = score
-            self.end()
+            self.endGame()
         }
     }
     
@@ -129,7 +149,6 @@ class ErrorSpotting: GameProtocol {
 //            self.viewController.show(image: self.imageMask)
         }
         
-//        let colorRGB = imageMask?.getPixelColor(pos: CGPoint(x: location.x * 2, y: location.y * 2))
         let colorRGB = self.viewController.maskView.getPixelColorAt(point: location)
         
         var errorIndex: Int = 0
@@ -147,6 +166,14 @@ class ErrorSpotting: GameProtocol {
             }
             
             self.colorIdentity[errorIndex] += 1
+            if self.colorIdentity[errorIndex] == 1 {
+                self.remainingErrors -= 1
+                self.viewController.show(errorRemaining: self.remainingErrors)
+            }
+            
+            if self.remainingErrors <= 0 {
+                self.endGame()
+            }
         }
     }
 }
@@ -175,52 +202,3 @@ extension UIImageView {
         return colorRGB
     }
 }
-
-//extension UIImage {
-//    func getPixelColor(pos: CGPoint) -> RGB? {
-//        
-//        guard let cgImage = self.cgImage, let dataProvider = cgImage.dataProvider else {
-//            return nil
-//        }
-//        
-//        print(cgImage.width, cgImage.height)
-//        
-//        let pixelData = dataProvider.data
-//        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-//        
-//        let pixelInfo: Int = ((Int(cgImage.width) * Int(pos.y)) + Int(pos.x)) * 4
-//        
-//        let r = CGFloat(data[pixelInfo])
-//        let g = CGFloat(data[pixelInfo+1])
-//        let b = CGFloat(data[pixelInfo+2])
-//        
-//        return RGB(r: r, g: g, b: b)
-//    }
-//}
-
-//extension UIImage {
-//    func getPixelColor(pos: CGPoint) -> RGB? {
-//        
-//        let x = Int(self.size.width / pos.x)
-//        let y = Int(self.size.height / pos.y)
-//        
-//        guard let cgImage = self.cgImage, let dataProvider = cgImage.dataProvider else {
-//            return nil
-//        }
-//        
-//        print(cgImage.width, cgImage.height)
-//        
-//        let pixelData = dataProvider.data
-//        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-//        
-//        print(Int(cgImage.height) * y, Int(cgImage.width) * x)
-//        
-//        let pixelInfo: Int = ((Int(cgImage.width) * Int(cgImage.height) * y) + Int(cgImage.width) * x) * 4
-//        
-//        let r = CGFloat(data[pixelInfo])
-//        let g = CGFloat(data[pixelInfo+1])
-//        let b = CGFloat(data[pixelInfo+2])
-//        
-//        return RGB(r: r, g: g, b: b)
-//    }
-//}

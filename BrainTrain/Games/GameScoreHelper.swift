@@ -30,27 +30,14 @@ class GameScoreHelper {
         return []
     }
     
-    static func insert(game: String, score: Int, date: Date, profileName: String) {
+    static func insert(game: String, score: Int, date: Date) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let profile: Profile?
-        let fetchRequest: NSFetchRequest<Profile> = Profile.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "name == %@", profileName)
-        do {
-            let entries = try managedContext.fetch(fetchRequest)
-            if entries.count >= 1 {
-                profile = entries[0]
-            } else {
-                profile = nil
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-            profile = nil
-        }
+        let profile: Profile = appDelegate.profile!
         
         let s = Score(context: managedContext)
         s.game = game

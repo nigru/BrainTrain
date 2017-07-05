@@ -111,9 +111,6 @@ class GameViewController: UIViewController {
     }
 
     private func saveScore() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        GameScoreHelper.insert(game: self.game.name, score: self.game.score, date: Date(), profileName: (appDelegate.profile?.name)!)
+        GameScoreHelper.insert(game: self.game.name, score: self.game.score, date: Date())
     }
 }
