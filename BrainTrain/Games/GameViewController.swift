@@ -56,10 +56,12 @@ class GameViewController: UIViewController {
         self.viewChart.minY = 0
         self.viewChart.xLabelsFormatter = { _,_ in "" }
         self.viewChart.yLabelsFormatter = { _,_ in "" }
-        let scores = Array(GameScore.fetch(forGame: self.game).suffix(10))
-        let series = ChartSeries(scores)
-        series.color = ChartColors.greenColor()
-        self.viewChart.add(series)
+        let scores = Array(GameScoreHelper.fetch(forGame: self.game).suffix(10))
+        if scores.count != 0 {
+            let series = ChartSeries(scores)
+            series.color = ChartColors.greenColor()
+            self.viewChart.add(series)
+        }
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
@@ -98,7 +100,7 @@ class GameViewController: UIViewController {
         self.saveScore()
         self.game.getViewController().dismiss(animated: true, completion: {
             self.lblScore.completionBlock = {
-                let scores = Array(GameScore.fetch(forGame: self.game).suffix(10))
+                let scores = Array(GameScoreHelper.fetch(forGame: self.game).suffix(10))
                 let series = ChartSeries(scores)
                 series.color = ChartColors.greenColor()
                 self.viewChart.removeAllSeries()
@@ -109,7 +111,9 @@ class GameViewController: UIViewController {
     }
 
     private func saveScore() {
-        let gameScore = GameScore(game: self.game.name, score: self.game.score, date: Date())
-        gameScore.save()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        GameScoreHelper.insert(game: self.game.name, score: self.game.score, date: Date(), profileName: (appDelegate.profile?.name)!)
     }
 }

@@ -9,7 +9,7 @@
 import SwiftChart
 
 extension ChartSeries {
-    convenience init(_ series: [GameScore]) {
+    convenience init(_ series: [Score]) {
         var values: [Float] = []
         for score in series {
             values.append(Float(score.score))

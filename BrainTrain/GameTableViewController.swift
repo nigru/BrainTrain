@@ -7,12 +7,41 @@
 //
 
 import UIKit
+import CoreData
 
 class GameTableViewController: UITableViewController {
     
     let gameManager : GameManager = GameManager.getInstance()
     
     override func viewDidLoad() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.profile == nil {
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<Profile> = Profile.fetchRequest()
+            do {
+                let profiles = try managedContext.fetch(fetchRequest)
+                if profiles.count == 0 {
+                    let profile = Profile(context: managedContext)
+                    profile.name = "Test"
+                    
+                    do {
+                        try managedContext.save()
+                    } catch let error as NSError {
+                        print("Could not save. \(error), \(error.userInfo)")
+                    }
+                    
+                    appDelegate.profile = profile
+                } else if profiles.count == 1 {
+                    appDelegate.profile = profiles[0]
+                } else {
+                    // TODO
+                }
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
+        
         super.viewDidLoad()
     }
     

@@ -28,8 +28,8 @@ extension GameProtocol {
         }
     }
     
-    func fetchScores() -> [GameScore] {
-        return GameScore.fetch(forGame: self)
+    func fetchScores() -> [Score] {
+        return GameScoreHelper.fetch(forGame: self)
     }
 }
 

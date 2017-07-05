@@ -32,7 +32,7 @@
 		507889201EEACFB000C66E23 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5078891F1EEACFB000C66E23 /* Math.swift */; };
 		507889231EEAD29A00C66E23 /* UIViewShake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889221EEAD29A00C66E23 /* UIViewShake.swift */; };
 		5078892B1EEAE14500C66E23 /* BrainTrain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 507889291EEAE14500C66E23 /* BrainTrain.xcdatamodeld */; };
-		507889371EEAEF0D00C66E23 /* GameScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889361EEAEF0D00C66E23 /* GameScore.swift */; };
+		507889371EEAEF0D00C66E23 /* GameScoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889361EEAEF0D00C66E23 /* GameScoreHelper.swift */; };
 		507889391EED400800C66E23 /* ErrorSpotting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507889381EED400800C66E23 /* ErrorSpotting.xcassets */; };
 		5078893C1EED695400C66E23 /* ColoredWordsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5078893B1EED695400C66E23 /* ColoredWordsGame.swift */; };
 		507889431EED6B7300C66E23 /* ColoredWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889411EED6B7300C66E23 /* ColoredWordsViewController.swift */; };
@@ -94,7 +94,7 @@
 		5078891F1EEACFB000C66E23 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		507889221EEAD29A00C66E23 /* UIViewShake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewShake.swift; sourceTree = "<group>"; };
 		5078892A1EEAE14500C66E23 /* BrainTrain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BrainTrain.xcdatamodel; sourceTree = "<group>"; };
-		507889361EEAEF0D00C66E23 /* GameScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScore.swift; sourceTree = "<group>"; };
+		507889361EEAEF0D00C66E23 /* GameScoreHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScoreHelper.swift; sourceTree = "<group>"; };
 		507889381EED400800C66E23 /* ErrorSpotting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ErrorSpotting.xcassets; sourceTree = "<group>"; };
 		5078893B1EED695400C66E23 /* ColoredWordsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredWordsGame.swift; sourceTree = "<group>"; };
 		507889411EED6B7300C66E23 /* ColoredWordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredWordsViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				50683EDC1EE474390039C140 /* GameProtocol.swift */,
-				507889361EEAEF0D00C66E23 /* GameScore.swift */,
+				507889361EEAEF0D00C66E23 /* GameScoreHelper.swift */,
 				507889471F03E16D00C66E23 /* GameLevel.swift */,
 				50683EDE1EE474610039C140 /* GameManager.swift */,
 				50683EED1EE550FD0039C140 /* GameViewController.swift */,
@@ -574,7 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				507889431EED6B7300C66E23 /* ColoredWordsViewController.swift in Sources */,
-				507889371EEAEF0D00C66E23 /* GameScore.swift in Sources */,
+				507889371EEAEF0D00C66E23 /* GameScoreHelper.swift in Sources */,
 				50683EF31EE569CA0039C140 /* ErrorSpotting.swift in Sources */,
 				5078893C1EED695400C66E23 /* ColoredWordsGame.swift in Sources */,
 				507889231EEAD29A00C66E23 /* UIViewShake.swift in Sources */,
