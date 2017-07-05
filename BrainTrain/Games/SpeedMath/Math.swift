@@ -28,7 +28,19 @@ struct Math: Equatable {
     let op: MathOperator
     
     var stringRepresentation: String {
-        return "\(self.a) \(self.op.str) \(self.b)"
+        var str = "\(self.a)"
+        if self.a < 0 {
+            str = "(\(str))"
+        }
+        str += " \(self.op.str) "
+        
+        if self.b < 0 {
+            str += "(\(self.b))"
+        } else {
+            str += "\(self.b)"
+        }
+        
+        return str
     }
     
     var result: Int {
