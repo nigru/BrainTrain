@@ -10,18 +10,17 @@ import UIKit
 import SwiftRandom
 
 class ErrorSpotting: GameProtocol {
-    
-    private static let PLAY_TIME: Int = 15
-    private static let ORIGINAL_IMAGE_INTERVAL: TimeInterval = 3
     private static let BLANK_IMAGE_INTERVAL: TimeInterval = 3
     
     private var viewController: ErrorSpottingViewController
     let name: String = "ErrorSpotting"
-    let description: String = "Dir werden nacheinander zwei Bilder gezeigt. Im zweiten Bild sind Fehler eingebaut, die du finden sollst. Tippe auf die vermeindlich fehlerhaften Stellen im Bild.\nJeder nicht gefundene Fehler kostet dich Punkte, genauso wie eine angetippte, nicht fehlerhafte Stelle.\nDu hast \(Int(ErrorSpotting.ORIGINAL_IMAGE_INTERVAL)) Sekunden Zeit dir das Original einzuprägen. Danach musst du innerhalbt von \(ErrorSpotting.PLAY_TIME) Sekunden alle Fehler finden."
+    let description: String = "Dir werden nacheinander zwei Bilder gezeigt. Im zweiten Bild sind Fehler eingebaut, die du finden sollst. Tippe auf die vermeindlich fehlerhaften Stellen im Bild.\nJeder nicht gefundene Fehler kostet dich Punkte, genauso wie eine angetippte, nicht fehlerhafte Stelle.\nDu hast ein paar Sekunden Zeit dir das Original einzuprägen. Danach musst du innerhalb der Spielzeit alle Fehler finden."
     var didEndGame: ((Int) -> ())?
     
     var score: Int = 0
     var playTime: Int = 0
+    var searchTime: TimeInterval = 5
+    var memorizeTime: TimeInterval = 3
     var remainingErrors: Int = 0
     var level: GameLevel = .easy
     
@@ -43,7 +42,6 @@ class ErrorSpotting: GameProtocol {
     
     func start(level: GameLevel) {
         self.score = 0
-        self.playTime = ErrorSpotting.PLAY_TIME
         self.colorIdentity = [0, -1, -1, -1, -1, -1, -1, -1]
         self.level = level
         
@@ -52,6 +50,22 @@ class ErrorSpotting: GameProtocol {
         self.viewController.show(errorRemaining: nil)
         self.selectRandomImage()
         self.remainingErrors = self.errorAmount[self.imageNumber!]!
+        
+        switch level {
+        case .easy:
+            searchTime *= 3
+            memorizeTime *= 3
+            break
+        case .medium:
+            searchTime *= 2
+            memorizeTime *= 2
+            break
+        default:
+            break
+        }
+        
+        self.playTime = Int(self.searchTime)
+        
         self.showOriginalImage()
     }
     
@@ -89,7 +103,13 @@ class ErrorSpotting: GameProtocol {
         self.playTime = max(0, self.playTime)
         
         self.score = Int(score) + self.playTime
-        self.end()
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
+            self.viewController.show(image: UIImage(named: "\(self.fileName!)"))
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
+                self.end()
+            }
+        }
     }
     
     func selectRandomImage() {
@@ -104,7 +124,7 @@ class ErrorSpotting: GameProtocol {
         let image = UIImage(named: self.fileName!, in: Bundle(identifier: "ErrorSpotting"), compatibleWith: nil)
         self.viewController.show(image: image)
         
-        self.showErrorImage(afterSeconds: ErrorSpotting.ORIGINAL_IMAGE_INTERVAL)
+        self.showErrorImage(afterSeconds: self.memorizeTime)
     }
     
     func showBlankImage(forSeconds seconds: TimeInterval, completion: @escaping () -> ()) {
