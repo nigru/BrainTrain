@@ -2,16 +2,16 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="scores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Score" inverseName="profile" inverseEntity="Score" syncable="YES"/>
+        <relationship name="scores" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Score" inverseName="profile" inverseEntity="Score" syncable="YES"/>
     </entity>
     <entity name="Score" representedClassName="Score" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="game" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="profile" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="scores" inverseEntity="Profile" syncable="YES"/>
+        <relationship name="profile" maxCount="1" deletionRule="No Action" destinationEntity="Profile" inverseName="scores" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Score" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Profile" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="Profile" positionX="-63" positionY="9" width="128" height="73"/>
+        <element name="Score" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

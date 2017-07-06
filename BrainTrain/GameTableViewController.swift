@@ -14,35 +14,20 @@ class GameTableViewController: UITableViewController {
     let gameManager : GameManager = GameManager.getInstance()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let button = UIBarButtonItem()
+        button.title = "Back"
+        self.navigationItem.backBarButtonItem = button
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if appDelegate.profile == nil {
-            
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let fetchRequest: NSFetchRequest<Profile> = Profile.fetchRequest()
-            do {
-                let profiles = try managedContext.fetch(fetchRequest)
-                if profiles.count == 0 {
-                    let profile = Profile(context: managedContext)
-                    profile.name = "Test"
-                    
-                    do {
-                        try managedContext.save()
-                    } catch let error as NSError {
-                        print("Could not save. \(error), \(error.userInfo)")
-                    }
-                    
-                    appDelegate.profile = profile
-                } else if profiles.count == 1 {
-                    appDelegate.profile = profiles[0]
-                } else {
-                    // TODO
-                }
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
+        
+        guard let profile = appDelegate.profile else {
+            self.navigationController?.popViewController(animated: true)
+            return
         }
         
-        super.viewDidLoad()
+        self.navigationItem.title = profile.name
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,6 +58,10 @@ class GameTableViewController: UITableViewController {
         let game = self.gameManager.getGame(index: indexPath.row)
         let gameVC = GameViewController(game: game)
         self.navigationController?.pushViewController(gameVC, animated: true)
+    }
+    
+    func switchProfile() {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
