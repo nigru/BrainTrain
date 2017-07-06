@@ -23,7 +23,6 @@ class TestGameViewController: UIViewController {
     }
     
     func btnClick() {
-        self.game?.score = 100
         self.game?.end()
     }
 

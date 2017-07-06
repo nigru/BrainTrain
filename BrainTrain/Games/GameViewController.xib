@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="btn" destination="rvl-MS-aYv" id="EMm-Wg-xQj"/>
                 <outlet property="lblScore" destination="fYi-oS-JDX" id="yuF-Hu-dFw"/>
+                <outlet property="segmentedControlLevel" destination="6ag-nj-Vhm" id="cBw-Ns-kR5"/>
                 <outlet property="txtView" destination="Kk4-V8-4pu" id="hjs-yf-JT0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewChart" destination="tdr-0H-FQl" id="D6q-Fi-a7J"/>
@@ -27,12 +28,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kk4-V8-4pu">
-                            <rect key="frame" x="20" y="20" width="335" height="419"/>
+                            <rect key="frame" x="20" y="20" width="335" height="250"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="250" id="Sbw-JJ-93m"/>
+                            </constraints>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6ag-nj-Vhm">
+                            <rect key="frame" x="20" y="411" width="335" height="29"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                                <segment title=""/>
+                            </segments>
+                        </segmentedControl>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdr-0H-FQl" customClass="Chart" customModule="SwiftChart">
                             <rect key="frame" x="20" y="447" width="335" height="150"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,12 +69,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="6ag-nj-Vhm" firstAttribute="leading" secondItem="aRW-F9-Mh8" secondAttribute="leading" constant="20" symbolic="YES" id="3Df-6V-xrg"/>
                         <constraint firstItem="rvl-MS-aYv" firstAttribute="centerX" secondItem="tdr-0H-FQl" secondAttribute="centerX" id="5Na-ns-zL5"/>
+                        <constraint firstAttribute="trailing" secondItem="6ag-nj-Vhm" secondAttribute="trailing" constant="20" symbolic="YES" id="6Ci-Ug-rfX"/>
                         <constraint firstAttribute="bottom" secondItem="rvl-MS-aYv" secondAttribute="bottom" constant="20" symbolic="YES" id="9Sf-kW-v3f"/>
                         <constraint firstAttribute="trailing" secondItem="fYi-oS-JDX" secondAttribute="trailing" constant="20" symbolic="YES" id="Cuh-cn-uG0"/>
                         <constraint firstItem="rvl-MS-aYv" firstAttribute="top" secondItem="fYi-oS-JDX" secondAttribute="bottom" constant="8" symbolic="YES" id="FSe-rV-u6D"/>
                         <constraint firstItem="fYi-oS-JDX" firstAttribute="top" secondItem="aRW-F9-Mh8" secondAttribute="top" constant="20" symbolic="YES" id="JC3-6l-p4F"/>
-                        <constraint firstItem="tdr-0H-FQl" firstAttribute="top" secondItem="Kk4-V8-4pu" secondAttribute="bottom" constant="8" symbolic="YES" id="Wlj-J0-feH"/>
+                        <constraint firstItem="tdr-0H-FQl" firstAttribute="top" secondItem="6ag-nj-Vhm" secondAttribute="bottom" constant="8" symbolic="YES" id="ONz-4b-lsk"/>
                         <constraint firstAttribute="trailing" secondItem="Kk4-V8-4pu" secondAttribute="trailing" constant="20" symbolic="YES" id="XHU-By-Wa5"/>
                         <constraint firstItem="fYi-oS-JDX" firstAttribute="leading" secondItem="aRW-F9-Mh8" secondAttribute="leading" constant="20" symbolic="YES" id="Z2H-TN-Pt2"/>
                         <constraint firstItem="rvl-MS-aYv" firstAttribute="top" secondItem="tdr-0H-FQl" secondAttribute="bottom" constant="20" id="ZDN-ds-QyA"/>

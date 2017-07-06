@@ -18,10 +18,12 @@ class GameViewController: UIViewController {
             if isStartView {
                 self.txtView.isHidden = false
                 self.lblScore.isHidden = true
+                self.segmentedControlLevel.isHidden = false
                 self.btn.setTitle("Start", for: UIControlState.normal)
             } else {
                 self.txtView.isHidden = true
                 self.lblScore.isHidden = false
+                self.segmentedControlLevel.isHidden = true
                 self.btn.setTitle("Fertig", for: UIControlState.normal)
             }
         }
@@ -31,6 +33,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var txtView: UITextView!
     @IBOutlet weak var viewChart: Chart!
     @IBOutlet weak var btn: UIButton!
+    @IBOutlet weak var segmentedControlLevel: UISegmentedControl!
     
     var game: GameProtocol
     
@@ -63,6 +66,10 @@ class GameViewController: UIViewController {
             self.viewChart.add(series)
         }
         
+        self.segmentedControlLevel.setTitle("Easy", forSegmentAt: 0)
+        self.segmentedControlLevel.setTitle("Medium", forSegmentAt: 1)
+        self.segmentedControlLevel.setTitle("Hard", forSegmentAt: 2)
+        
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
@@ -86,7 +93,23 @@ class GameViewController: UIViewController {
             self.present(self.game.getViewController(), animated: true, completion: {
                 self.isStartView = false
             })
-            self.game.start(level: .hard) // TODO level
+            
+            let level: GameLevel
+            switch self.segmentedControlLevel.selectedSegmentIndex {
+            case 0:
+                level = .easy
+                break
+            case 1:
+                level = .medium
+                break
+            case 2:
+                level = .hard
+                break
+            default:
+                level = .easy
+            }
+            
+            self.game.start(level: level)   
         } else {
             if let navigationController = self.navigationController {
                 navigationController.popViewController(animated: true)

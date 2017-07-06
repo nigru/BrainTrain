@@ -27,7 +27,16 @@ class TestGame: GameProtocol {
     }
     
     func start(level: GameLevel) {
-        self.score = 0
+        switch level {
+        case .easy:
+            self.score = 100
+            break
+        case .medium:
+            self.score = 50
+            break
+        default:
+            self.score = 10
+        }
     }
     
     func pause() {
