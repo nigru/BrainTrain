@@ -54,11 +54,22 @@ class GameTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let game = self.gameManager.getGame(index: indexPath.row)
-        let gameVC = GameTabBarController(game: game) //GameViewController(game: game)
-        self.navigationController?.pushViewController(gameVC, animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Game", let destinationVC = segue.destination as? GameTabBarController {
+            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+                let game = self.gameManager.getGame(index: indexPath.row)
+                destinationVC.setGame(game)
+            }
+        }
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+////        let game = self.gameManager.getGame(index: indexPath.row)
+////        let gameVC = GameTabBarController(game: game) //GameViewController(game: game)
+////        self.navigationController?.pushViewController(gameVC, animated: true)
+//        
+//        self.performSegue(withIdentifier: "Game", sender: self)
+//    }
     
     func switchProfile() {
         self.dismiss(animated: true, completion: nil)

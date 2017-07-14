@@ -10,56 +10,58 @@ import UIKit
 
 class GameTabBarController: UITabBarController {
     
-    private var game: GameProtocol
-    private let gameVC: GameViewController
-    
-    init(game: GameProtocol) {
-        self.game = game
-        self.gameVC = GameViewController(game: self.game)
-        super.init(nibName: nil, bundle: nil)
-        
-        self.game.didEndGame = self.didEndGame
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private var game: GameProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.addChildViewController(self.gameVC)
-
-        // Do any additional setup after loading the view.
+        self.setGameForChildViewController()
+        //        self.gameVC.tabBarItem.image =
+//        self.addChildViewController(self.gameVC)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func setGame(_ game: GameProtocol) {
+        self.game = game
+        self.game!.didEndGame = self.didEndGame
+        
+        if self.isViewLoaded {
+            self.setGameForChildViewController()
+        }
+    }
+    
+    private func setGameForChildViewController() {
+        guard let game = self.game else {
+            return
+        }
+        
+        for viewController in self.childViewControllers {
+            if let hasGame = viewController as? HasGame {
+                hasGame.setGame(game)
+            }
+        }
     }
     
     private func didEndGame(score: Int) {
+        guard let game = self.game else {
+            return
+        }
+        
         self.saveScore()
-        self.game.getViewController().dismiss(animated: false, completion: nil)
+        game.getViewController().dismiss(animated: false, completion: nil)
         self.present(ScoreViewController(score: score), animated: false, completion: {
-            self.gameVC.updateChart()
+//            self.gameVC.updateChart()
         })
     }
-    
+
     private func saveScore() {
-        GameScoreHelper.insert(game: self.game.name, score: self.game.score, date: Date())
+        guard let game = self.game else {
+            return
+        }
+        
+        GameScoreHelper.insert(game: game.name, score: game.score, date: Date())
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

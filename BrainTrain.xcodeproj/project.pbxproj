@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		279332CA74ACC77F6E32E76E /* Pods_BrainTrain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556AC2A36485E7699A2BA6C0 /* Pods_BrainTrain.framework */; };
+		500F26D01F17859C009D9116 /* HighscoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F26CF1F17859C009D9116 /* HighscoreTableViewController.swift */; };
+		503ED2651F17765600DC2282 /* HasGameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503ED2641F17765600DC2282 /* HasGameProtocol.swift */; };
 		50683EA91EE471D50039C140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EA81EE471D50039C140 /* AppDelegate.swift */; };
 		50683EAE1EE471D50039C140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50683EAC1EE471D50039C140 /* Main.storyboard */; };
 		50683EB01EE471D50039C140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50683EAF1EE471D50039C140 /* Assets.xcassets */; };
@@ -21,7 +23,6 @@
 		50683EEB1EE54B390039C140 /* TestGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EE91EE54B390039C140 /* TestGameViewController.swift */; };
 		50683EEC1EE54B390039C140 /* TestGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50683EEA1EE54B390039C140 /* TestGameViewController.xib */; };
 		50683EEF1EE550FD0039C140 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EED1EE550FD0039C140 /* GameViewController.swift */; };
-		50683EF01EE550FD0039C140 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50683EEE1EE550FD0039C140 /* GameViewController.xib */; };
 		50683EF31EE569CA0039C140 /* ErrorSpotting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EF21EE569CA0039C140 /* ErrorSpotting.swift */; };
 		50683EF61EE56A140039C140 /* ErrorSpottingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EF41EE56A140039C140 /* ErrorSpottingViewController.swift */; };
 		50683EF71EE56A140039C140 /* ErrorSpottingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50683EF51EE56A140039C140 /* ErrorSpottingViewController.xib */; };
@@ -68,6 +69,8 @@
 		297FD4EB288F1524923FF8A8 /* Pods-BrainTrainUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainTrainUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrainTrainUITests/Pods-BrainTrainUITests.release.xcconfig"; sourceTree = "<group>"; };
 		31C476DBEBBA14EE4FFD367B /* Pods-BrainTrainUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainTrainUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BrainTrainUITests/Pods-BrainTrainUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		48BF940B616658E5C161E11F /* Pods-BrainTrain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BrainTrain.release.xcconfig"; path = "Pods/Target Support Files/Pods-BrainTrain/Pods-BrainTrain.release.xcconfig"; sourceTree = "<group>"; };
+		500F26CF1F17859C009D9116 /* HighscoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreTableViewController.swift; sourceTree = "<group>"; };
+		503ED2641F17765600DC2282 /* HasGameProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasGameProtocol.swift; sourceTree = "<group>"; };
 		50683EA51EE471D50039C140 /* BrainTrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainTrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50683EA81EE471D50039C140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50683EAD1EE471D50039C140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,7 +90,6 @@
 		50683EE91EE54B390039C140 /* TestGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGameViewController.swift; sourceTree = "<group>"; };
 		50683EEA1EE54B390039C140 /* TestGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestGameViewController.xib; sourceTree = "<group>"; };
 		50683EED1EE550FD0039C140 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		50683EEE1EE550FD0039C140 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		50683EF21EE569CA0039C140 /* ErrorSpotting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorSpotting.swift; sourceTree = "<group>"; };
 		50683EF41EE56A140039C140 /* ErrorSpottingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorSpottingViewController.swift; sourceTree = "<group>"; };
 		50683EF51EE56A140039C140 /* ErrorSpottingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorSpottingViewController.xib; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		500F26CE1F178586009D9116 /* Highscore */ = {
+			isa = PBXGroup;
+			children = (
+				500F26CF1F17859C009D9116 /* HighscoreTableViewController.swift */,
+			);
+			path = Highscore;
+			sourceTree = "<group>";
+		};
 		50683E9C1EE471D50039C140 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		50683EA71EE471D50039C140 /* BrainTrain */ = {
 			isa = PBXGroup;
 			children = (
+				500F26CE1F178586009D9116 /* Highscore */,
 				507889211EEAD28C00C66E23 /* Extensions */,
 				50F7F11F1F0E48240026850E /* Profile */,
 				50683EDB1EE4742F0039C140 /* Games */,
@@ -208,18 +219,18 @@
 			isa = PBXGroup;
 			children = (
 				50683EDC1EE474390039C140 /* GameProtocol.swift */,
+				503ED2641F17765600DC2282 /* HasGameProtocol.swift */,
 				507889361EEAEF0D00C66E23 /* GameScoreHelper.swift */,
 				507889471F03E16D00C66E23 /* GameLevel.swift */,
 				50683EDE1EE474610039C140 /* GameManager.swift */,
 				50F7F1241F164AA70026850E /* GameTabBarController.swift */,
 				50683EED1EE550FD0039C140 /* GameViewController.swift */,
-				50683EEE1EE550FD0039C140 /* GameViewController.xib */,
+				50F7F1261F164C370026850E /* ScoreViewController.swift */,
+				50F7F1271F164C370026850E /* ScoreViewController.xib */,
 				5078893A1EED693400C66E23 /* ColoredWords */,
 				50683EF11EE569BE0039C140 /* ErrorSpotting */,
 				507889181EEACA4800C66E23 /* SpeedMath */,
 				50683EE01EE474ED0039C140 /* TestGame */,
-				50F7F1261F164C370026850E /* ScoreViewController.swift */,
-				50F7F1271F164C370026850E /* ScoreViewController.xib */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -431,7 +442,6 @@
 				50683EF71EE56A140039C140 /* ErrorSpottingViewController.xib in Resources */,
 				507889441EED6B7300C66E23 /* ColoredWordsViewController.xib in Resources */,
 				50683EAE1EE471D50039C140 /* Main.storyboard in Resources */,
-				50683EF01EE550FD0039C140 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +612,7 @@
 				507889231EEAD29A00C66E23 /* UIViewShake.swift in Sources */,
 				507889201EEACFB000C66E23 /* Math.swift in Sources */,
 				50683EDF1EE474610039C140 /* GameManager.swift in Sources */,
+				500F26D01F17859C009D9116 /* HighscoreTableViewController.swift in Sources */,
 				50683EEB1EE54B390039C140 /* TestGameViewController.swift in Sources */,
 				50683EF61EE56A140039C140 /* ErrorSpottingViewController.swift in Sources */,
 				50F7F1281F164C370026850E /* ScoreViewController.swift in Sources */,
@@ -611,6 +622,7 @@
 				507889481F03E16D00C66E23 /* GameLevel.swift in Sources */,
 				50683EE21EE4754E0039C140 /* TestGame.swift in Sources */,
 				50683EF91EE56C8A0039C140 /* Util.swift in Sources */,
+				503ED2651F17765600DC2282 /* HasGameProtocol.swift in Sources */,
 				50683EA91EE471D50039C140 /* AppDelegate.swift in Sources */,
 				5078892B1EEAE14500C66E23 /* BrainTrain.xcdatamodeld in Sources */,
 				507889461EF3DE1300C66E23 /* ChartSeries.swift in Sources */,
