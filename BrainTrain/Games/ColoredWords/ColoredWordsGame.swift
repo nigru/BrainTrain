@@ -108,6 +108,7 @@ class ColoredWordsGame: GameProtocol {
         self.playTime -= 1
         self.viewController.timeLabel.text = "\(playTime)"
         if (playTime <= 0) {
+            self.gameTimer?.invalidate()
             self.end()
         }
     }
