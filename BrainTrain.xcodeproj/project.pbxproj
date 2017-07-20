@@ -40,6 +40,7 @@
 		507889461EF3DE1300C66E23 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889451EF3DE1300C66E23 /* ChartSeries.swift */; };
 		507889481F03E16D00C66E23 /* GameLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507889471F03E16D00C66E23 /* GameLevel.swift */; };
 		50D37D671F1A1F5C0005A30F /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D37D661F1A1F5C0005A30F /* ProfileController.swift */; };
+		50D37D691F20DC1A0005A30F /* HighscoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D37D681F20DC1A0005A30F /* HighscoreTableViewCell.swift */; };
 		50F7F1231F0E48D50026850E /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F7F1221F0E48D50026850E /* ProfileTableViewController.swift */; };
 		50F7F1251F164AA70026850E /* GameTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F7F1241F164AA70026850E /* GameTabBarController.swift */; };
 		50F7F1281F164C370026850E /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F7F1261F164C370026850E /* ScoreViewController.swift */; };
@@ -107,6 +108,7 @@
 		507889451EF3DE1300C66E23 /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
 		507889471F03E16D00C66E23 /* GameLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
 		50D37D661F1A1F5C0005A30F /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		50D37D681F20DC1A0005A30F /* HighscoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreTableViewCell.swift; sourceTree = "<group>"; };
 		50F7F1221F0E48D50026850E /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		50F7F1241F164AA70026850E /* GameTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTabBarController.swift; sourceTree = "<group>"; };
 		50F7F1261F164C370026850E /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				500F26CF1F17859C009D9116 /* HighscoreTableViewController.swift */,
+				50D37D681F20DC1A0005A30F /* HighscoreTableViewCell.swift */,
 			);
 			path = Highscore;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				50F7F1281F164C370026850E /* ScoreViewController.swift in Sources */,
 				50683EE61EE478320039C140 /* GameTableViewController.swift in Sources */,
 				50683EEF1EE550FD0039C140 /* GameViewController.swift in Sources */,
+				50D37D691F20DC1A0005A30F /* HighscoreTableViewCell.swift in Sources */,
 				5078891D1EEACBAB00C66E23 /* SpeedMathViewController.swift in Sources */,
 				507889481F03E16D00C66E23 /* GameLevel.swift in Sources */,
 				500BC4D31F1A0F1700F1869D /* ScoreController.swift in Sources */,

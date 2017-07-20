@@ -15,7 +15,7 @@ class GameViewController: UIViewController, HasGame {
     @IBOutlet weak var txtView: UITextView!
     @IBOutlet weak var viewChart: Chart!
     @IBOutlet weak var segmentedControlLevel: UISegmentedControl!
-    
+
     var game: GameProtocol? {
         didSet {
             self.updateGame()
@@ -91,13 +91,14 @@ class GameViewController: UIViewController, HasGame {
     }
 
     @IBAction func btnClick() {
-        guard let game = self.game else { return }
+        guard var game = self.game else { return }
         
         self.present(game.getViewController(), animated: true, completion: nil)
         
         let index = self.segmentedControlLevel.selectedSegmentIndex
         let level = GameLevel(rawValue: index) ?? .easy
-        game.start(level: level)
+        game.level = level
+        game.start()
     }
     
  }

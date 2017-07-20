@@ -13,6 +13,7 @@ protocol GameProtocol: ScoreController {
     var name: String { get }
     var description: String { get }
     var score: Int { get set }
+    var level: GameLevel { get set }
     var didEndGame: (() -> ())? { get set }
     
     func start(level: GameLevel)
@@ -24,6 +25,10 @@ protocol GameProtocol: ScoreController {
 extension GameProtocol {
     func end() {
         self.didEndGame?()
+    }
+
+    func start() {
+        self.start(level: self.level)
     }
 }
 
