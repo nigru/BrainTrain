@@ -28,15 +28,10 @@ class ScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.doneButton.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
-        
         self.labelScore.format = "%d Punkte"
-        
         self.labelScore.countFromZero(to: CGFloat(self.score))
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.doneButton.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
     }
     
     @objc func btnClick() {

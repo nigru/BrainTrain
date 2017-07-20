@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol GameProtocol {
+protocol GameProtocol: ScoreController {
     
     var name: String { get }
     var description: String { get }
     var score: Int { get set }
-    var didEndGame: ((Int) -> ())? { get set }
+    var didEndGame: (() -> ())? { get set }
     
     func start(level: GameLevel)
     func pause()
@@ -23,13 +23,7 @@ protocol GameProtocol {
 
 extension GameProtocol {
     func end() {
-        if let didEndGame = self.didEndGame {
-            didEndGame(self.score)
-        }
-    }
-    
-    func fetchScores() -> [Score] {
-        return GameScoreHelper.fetch(forGame: self)
+        self.didEndGame?()
     }
 }
 

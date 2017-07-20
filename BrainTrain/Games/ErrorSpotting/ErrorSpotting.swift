@@ -15,7 +15,7 @@ class ErrorSpotting: GameProtocol {
     private var viewController: ErrorSpottingViewController
     let name: String = "ErrorSpotting"
     let description: String = "Dir werden nacheinander zwei Bilder gezeigt. Im zweiten Bild sind Fehler eingebaut, die du finden sollst. Tippe auf die vermeindlich fehlerhaften Stellen im Bild.\nJeder nicht gefundene Fehler kostet dich Punkte, genauso wie eine angetippte, nicht fehlerhafte Stelle.\nDu hast ein paar Sekunden Zeit dir das Original einzuprägen. Danach musst du innerhalb der Spielzeit alle Fehler finden."
-    var didEndGame: ((Int) -> ())?
+    var didEndGame: (() -> ())?
     
     var score: Int = 0
     var playTime: Int = 0

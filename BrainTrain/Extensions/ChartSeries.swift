@@ -9,11 +9,14 @@
 import SwiftChart
 
 extension ChartSeries {
+
     convenience init(_ series: [Score]) {
         var values: [Float] = []
-        for score in series {
+        for score in series.reversed() {
             values.append(Float(score.score))
         }
+
         self.init(values)
     }
+
 }

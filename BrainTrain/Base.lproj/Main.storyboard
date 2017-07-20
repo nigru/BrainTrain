@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="z80-OL-dFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="z80-OL-dFb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -131,6 +131,9 @@
                                     <constraint firstAttribute="width" constant="150" id="ZvC-O7-OUm"/>
                                 </constraints>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="btnClick" destination="9y0-le-r3M" eventType="touchUpInside" id="rwx-z3-fMI"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fzG-yb-prC">
                                 <rect key="frame" x="20" y="310" width="335" height="29"/>
@@ -159,7 +162,6 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Game" id="QyO-GW-C9Z"/>
                     <connections>
-                        <outlet property="btn" destination="82Y-Zv-uIL" id="tKo-Xa-vfa"/>
                         <outlet property="segmentedControlLevel" destination="fzG-yb-prC" id="Xmf-U9-taY"/>
                         <outlet property="txtView" destination="1Di-zF-aF9" id="Ccw-Lt-BAu"/>
                         <outlet property="viewChart" destination="AEW-mz-ry4" id="gCS-Uy-7SS"/>

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol HasGame {
-    func setGame(_ game: GameProtocol)
+    var game: GameProtocol? { get set }
 }

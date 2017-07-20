@@ -20,10 +20,6 @@ class SpeedMathViewController: UIViewController {
         super.viewDidLoad()
         self.addToolBar()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     private func addToolBar() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
@@ -56,13 +52,12 @@ class SpeedMathViewController: UIViewController {
     }
     
     func doneButtonAction() {
-        if let checkMathClosure = self.checkMathClosure {
-            if !checkMathClosure(self.txtFieldAnswer.text) {
-                self.lblMath.shake()
-            }
-        }
+        guard let checkMathClosure = self.checkMathClosure else { return }
+        guard !checkMathClosure(self.txtFieldAnswer.text) else { return }
+
+        self.lblMath.shake()
     }
-    
+
     func show(playTime: Int?) {
         guard let playTime = playTime else {
             self.lblTime.text = ""
@@ -78,10 +73,11 @@ class SpeedMathViewController: UIViewController {
             self.lblMath.text = ""
             return
         }
-        self.lblMath.text = math.stringRepresentation
+        self.lblMath.text = "\(math)"
     }
     
     func showKeyboard() {
         self.txtFieldAnswer.becomeFirstResponder()
     }
+
 }

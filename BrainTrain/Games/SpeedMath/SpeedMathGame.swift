@@ -16,7 +16,7 @@ class SpeedMathGame: GameProtocol {
     
     let name: String = "SpeedMath"
     let description: String = "..."
-    var didEndGame: ((Int) -> ())?
+    var didEndGame: (() -> ())?
     let viewController: SpeedMathViewController
     
     var score: Int = 0
@@ -39,21 +39,19 @@ class SpeedMathGame: GameProtocol {
 
     func start(level: GameLevel) {
         switch level {
-            case .medium:
+            case .easy:
                 self.operators = [MathOperator.add, MathOperator.sub]
                 self.min = 0
                 self.max = 10
-            case .hard:
+            case .medium:
                 self.operators = [MathOperator.add, MathOperator.sub]
                 self.min = -10
                 self.max = 10
-            default:
+            case .hard:
                 self.operators = [MathOperator.add, MathOperator.sub, MathOperator.mult, MathOperator.div]
                 self.min = -10
                 self.max = 10
         }
-        
-        print(level)
         
         self.score = 0
         self.playTime = SpeedMathGame.PLAY_TIME
@@ -75,7 +73,7 @@ class SpeedMathGame: GameProtocol {
         self.startTimer()
     }
     
-    func endGame() {
+    private func endGame() {
         self.gameTimer?.invalidate()
         self.end()
     }

@@ -9,23 +9,20 @@
 import Foundation
 
 class GameManager {
-    private static let instance: GameManager = GameManager()
-    
-    public static func getInstance() -> GameManager {
-        return GameManager.instance
+
+    static func getInstance() -> GameManager {
+        return instance
     }
-    
+
+    private static let instance = GameManager()
+
     private var games: [GameProtocol] = []
     
     init() {
-        self.add(game: ErrorSpotting())
-        self.add(game: SpeedMathGame())
-        self.add(game: ColoredWordsGame())
-        self.add(game: TestGame())
-    }
-    
-    private func add(game: GameProtocol) {
-        self.games.append(game)
+        self.games.append(ErrorSpotting())
+        self.games.append(SpeedMathGame())
+        self.games.append(ColoredWordsGame())
+        self.games.append(TestGame())
     }
     
     public func getGame(index: Int) -> GameProtocol {
