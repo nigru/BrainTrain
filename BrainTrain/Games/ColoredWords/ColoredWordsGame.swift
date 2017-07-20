@@ -13,7 +13,7 @@ class ColoredWordsGame: GameProtocol {
     private var viewController: ColoredWordsViewController
     let name: String = "ColoredWords"
     let description: String = "..."
-    var didEndGame: ((Int) -> ())?
+    var didEndGame: (() -> ())?
     var playTime = 10
     
     
@@ -108,6 +108,7 @@ class ColoredWordsGame: GameProtocol {
         self.playTime -= 1
         self.viewController.timeLabel.text = "\(playTime)"
         if (playTime <= 0) {
+            self.gameTimer?.invalidate()
             self.end()
         }
     }

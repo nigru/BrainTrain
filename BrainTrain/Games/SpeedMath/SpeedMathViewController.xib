@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,16 +32,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-aF-7JI">
-                    <rect key="frame" x="20" y="59" width="335" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="nXm-eo-P6R"/>
-                    </constraints>
+                    <rect key="frame" x="20" y="111" width="335" height="48"/>
                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQ3-I7-Fo0">
-                    <rect key="frame" x="20" y="267" width="335" height="30"/>
+                    <rect key="frame" x="20" y="219" width="335" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
@@ -54,8 +51,8 @@
                 <constraint firstItem="gQ3-I7-Fo0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="3OC-pM-tdL"/>
                 <constraint firstAttribute="trailing" secondItem="gQ3-I7-Fo0" secondAttribute="trailing" constant="20" symbolic="YES" id="8oJ-Zq-Xzb"/>
                 <constraint firstItem="7mM-PF-sz2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="JFz-fd-9sD"/>
-                <constraint firstItem="gQ3-I7-Fo0" firstAttribute="top" secondItem="SIz-aF-7JI" secondAttribute="bottom" constant="8" symbolic="YES" id="MrM-0b-9YI"/>
-                <constraint firstItem="SIz-aF-7JI" firstAttribute="top" secondItem="7mM-PF-sz2" secondAttribute="bottom" constant="8" symbolic="YES" id="RJc-D5-QgQ"/>
+                <constraint firstItem="gQ3-I7-Fo0" firstAttribute="top" secondItem="SIz-aF-7JI" secondAttribute="bottom" constant="60" id="MrM-0b-9YI"/>
+                <constraint firstItem="SIz-aF-7JI" firstAttribute="top" secondItem="7mM-PF-sz2" secondAttribute="bottom" constant="60" id="RJc-D5-QgQ"/>
                 <constraint firstAttribute="trailing" secondItem="7mM-PF-sz2" secondAttribute="trailing" constant="20" symbolic="YES" id="TgH-bJ-jc6"/>
                 <constraint firstItem="SIz-aF-7JI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="sI2-jf-sfq"/>
             </constraints>

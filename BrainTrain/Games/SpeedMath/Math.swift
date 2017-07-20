@@ -9,7 +9,7 @@
 import Foundation
 import SwiftRandom
 
-struct MathOperator: Equatable {
+struct MathOperator {
     let str: String
     let op: ((Int, Int) -> Int)
     
@@ -19,57 +19,70 @@ struct MathOperator: Equatable {
     static let div = MathOperator(str: "/", op: (/))
 }
 
-func ==(a: MathOperator, b: MathOperator) -> Bool {
-    return a.str == b.str
+extension MathOperator: Equatable {
+    static func == (a: MathOperator, b: MathOperator) -> Bool {
+        return a.str == b.str
+    }
 }
 
-struct Math: Equatable {
+
+
+struct Math {
     let a, b: Int
     let op: MathOperator
+
+    var result: Int {
+        return self.op.op(self.a, self.b)
+    }
+
+    func isValid() -> Bool {
+        return !(self.op == MathOperator.div &&
+            self.b == 0 ||
+            self.op == MathOperator.mult &&
+            self.a == 0 &&
+            self.b < 0)
+    }
+
+    static func random(min: Int, max: Int, operators: [MathOperator]) -> Math {
+        var math: Math
+        repeat {
+            math = Math(a: Int.random(min, max), b: Int.random(min, max), op: operators.randomItem()!)
+        } while !math.isValid()
     
-    var stringRepresentation: String {
+        return math
+    }
+}
+
+extension Math: CustomStringConvertible {
+    var description: String {
         var str = "\(self.a)"
         if self.a < 0 {
             str = "(\(str))"
         }
         str += " \(self.op.str) "
-        
+
         if self.b < 0 {
             str += "(\(self.b))"
         } else {
             str += "\(self.b)"
         }
-        
+
         return str
     }
-    
-    var result: Int {
-        return self.op.op(self.a, self.b)
+}
+
+extension Math: Equatable {
+    static func == (a: Math, b: Math) -> Bool {
+        return a.result == b.result
     }
-    
-    static func random(min: Int, max: Int, operators: [MathOperator]) -> Math {
-        var randomNum1: Int
-        var randomNum2: Int
-        var randomOperator: MathOperator
-        
-        repeat {
-            randomNum1 = Int.random(min, max)
-            randomNum2 = Int.random(min, max)
-            randomOperator = operators.randomItem()!
-        } while randomOperator == MathOperator.div && randomNum2 == 0 || randomOperator == MathOperator.mult && randomNum1 == 0 && randomNum2 == -1
-    
-        return Math(a: randomNum1, b: randomNum2, op: randomOperator)
+
+    static func == (a: Int, b: Math) -> Bool {
+        return a == b.result
+    }
+
+    static func == (a: Math, b: Int) -> Bool {
+        return a.result == b
     }
 }
 
-func ==(a: Math, b: Math) -> Bool {
-    return a.result == b.result
-}
 
-func ==(a: Int, b: Math) -> Bool {
-    return a == b.result
-}
-
-func ==(a: Math, b: Int) -> Bool {
-    return a.result == b
-}

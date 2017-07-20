@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum GameLevel {
+public enum GameLevel: Int {
     case easy
     case medium
     case hard

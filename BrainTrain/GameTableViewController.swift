@@ -20,7 +20,7 @@ class GameTableViewController: UITableViewController {
         button.title = "Back"
         self.navigationItem.backBarButtonItem = button
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate = AppDelegate.shared
         
         guard let profile = appDelegate.profile else {
             self.navigationController?.popViewController(animated: true)
@@ -35,11 +35,7 @@ class GameTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.gameManager.getGamesCount()
     }
@@ -58,18 +54,10 @@ class GameTableViewController: UITableViewController {
         if segue.identifier == "Game", let destinationVC = segue.destination as? GameTabBarController {
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 let game = self.gameManager.getGame(index: indexPath.row)
-                destinationVC.setGame(game)
+                destinationVC.game = game
             }
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////        let game = self.gameManager.getGame(index: indexPath.row)
-////        let gameVC = GameTabBarController(game: game) //GameViewController(game: game)
-////        self.navigationController?.pushViewController(gameVC, animated: true)
-//        
-//        self.performSegue(withIdentifier: "Game", sender: self)
-//    }
     
     func switchProfile() {
         self.dismiss(animated: true, completion: nil)

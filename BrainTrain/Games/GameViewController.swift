@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import UICountingLabel
 import SwiftChart
 
@@ -15,46 +14,55 @@ class GameViewController: UIViewController, HasGame {
     
     @IBOutlet weak var txtView: UITextView!
     @IBOutlet weak var viewChart: Chart!
-    @IBOutlet weak var btn: UIButton!
     @IBOutlet weak var segmentedControlLevel: UISegmentedControl!
     
-    var game: GameProtocol?
+    var game: GameProtocol? {
+        didSet {
+            self.updateGame()
+        }
+    }
+
+    private func initChart() {
+        self.viewChart.minY = 0
+        self.viewChart.xLabelsFormatter = { _,_ in "" }
+        self.viewChart.yLabelsFormatter = { _,_ in "" }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.btn.addTarget(self, action: #selector(btnClick), for: UIControlEvents.touchUpInside)
-        
-        self.viewChart.minY = 0
-        self.viewChart.xLabelsFormatter = { _,_ in "" }
-        self.viewChart.yLabelsFormatter = { _,_ in "" }
+        self.initChart()
         
         self.segmentedControlLevel.setTitle("Easy", forSegmentAt: 0)
         self.segmentedControlLevel.setTitle("Medium", forSegmentAt: 1)
         self.segmentedControlLevel.setTitle("Hard", forSegmentAt: 2)
         
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appWillResignActive), name: Notification.Name.UIApplicationWillResignActive, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
-        
-        self.updateGame()
-    }
+        notificationCenter.addObserver(self,
+                                       selector: #selector(appWillResignActive),
+                                       name: Notification.Name.UIApplicationWillResignActive,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(appDidBecomeActive),
+                                       name: Notification.Name.UIApplicationDidBecomeActive,
+                                       object: nil)
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let managedContext = AppDelegate.shared.persistentContainer.viewContext
+        notificationCenter.addObserver(self,
+                                       selector: #selector(contextSaved(_:)),
+                                       name: .NSManagedObjectContextDidSave,
+                                       object: managedContext)
+
+        self.updateGame()
     }
     
-    func setGame(_ game: GameProtocol) {
-        self.game = game
-        
-        self.updateGame()
+    @objc private func contextSaved(_ notification: Notification) {
+        self.updateChart()
     }
     
     private func updateGame() {
-        guard self.isViewLoaded, let game = self.game else {
-            return
-        }
+        guard self.isViewLoaded else { return }
+        guard let game = self.game else { return }
         
         self.title = game.name
         self.txtView.text = game.description
@@ -62,50 +70,33 @@ class GameViewController: UIViewController, HasGame {
         self.updateChart()
     }
     
-    func appWillResignActive() {
+    @objc private func appWillResignActive() {
         self.game?.pause()
     }
     
-    func appDidBecomeActive() {
+    @objc private func appDidBecomeActive() {
         self.game?.resume()
     }
     
-    func updateChart() {
-        guard let game = self.game else {
-            return
-        }
-        
-        let scores = Array(GameScoreHelper.fetch(forGame: game).suffix(10))
-        
-        if scores.count > 0 {
-            let series = ChartSeries(scores)
-            series.color = ChartColors.greenColor()
-            self.viewChart.removeAllSeries()
-            self.viewChart.add(series)
-        }
+    private func updateChart() {
+        guard let game = self.game else { return }
+
+        let scores = game.fetchScore(limit: 10)
+        guard !scores.isEmpty else { return }
+
+        let series = ChartSeries(scores)
+        series.color = ChartColors.greenColor()
+        self.viewChart.removeAllSeries()
+        self.viewChart.add(series)
     }
-    
-    @objc func btnClick() {
-        guard let game = self.game else {
-            return
-        }
+
+    @IBAction func btnClick() {
+        guard let game = self.game else { return }
+        
         self.present(game.getViewController(), animated: true, completion: nil)
         
-        let level: GameLevel
-        switch self.segmentedControlLevel.selectedSegmentIndex {
-        case 0:
-            level = .easy
-            break
-        case 1:
-            level = .medium
-            break
-        case 2:
-            level = .hard
-            break
-        default:
-            level = .easy
-        }
-        
+        let index = self.segmentedControlLevel.selectedSegmentIndex
+        let level = GameLevel(rawValue: index) ?? .easy
         game.start(level: level)
     }
     

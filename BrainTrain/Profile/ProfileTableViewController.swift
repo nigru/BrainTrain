@@ -9,31 +9,24 @@
 import UIKit
 import CoreData
 
-class ProfileTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class ProfileTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ProfileController {
 
     var fetchedResultsController: NSFetchedResultsController<Profile>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.title = "Profile"
-        
+
         initFetchedResultsController()
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return fetchedResultsController.sections!.count
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,8 +41,6 @@ class ProfileTableViewController: UITableViewController, NSFetchedResultsControl
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath)
-        
-        // Configure the cell...
         let profile = self.fetchedResultsController.object(at: indexPath)
         let name = profile.name
         cell.textLabel?.text = name
@@ -57,39 +48,25 @@ class ProfileTableViewController: UITableViewController, NSFetchedResultsControl
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    
-    // Override to support editing the table view.
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            let managedContext = self.fetchedResultsController.managedObjectContext
             let profile = self.fetchedResultsController.object(at: indexPath)
-            managedContext.delete(profile)
-            
-            do {
-                try managedContext.save()
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            } catch {
-                print("Could not save delete: \(error)")
+            self.delete(profile: profile) { (succes: Bool) in
+                if succes {
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
             }
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate = AppDelegate.shared
         appDelegate.profile = self.fetchedResultsController.object(at: indexPath)
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "gameTableVC")
-        
+
         self.performSegue(withIdentifier: "showGames", sender: self)
-        
-//        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func initFetchedResultsController() {
@@ -97,7 +74,7 @@ class ProfileTableViewController: UITableViewController, NSFetchedResultsControl
         let nameSort = NSSortDescriptor(key: "name", ascending: true)
         request.sortDescriptors = [nameSort]
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let appDelegate = AppDelegate.shared
         let moc = appDelegate.persistentContainer.viewContext
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
@@ -121,23 +98,25 @@ class ProfileTableViewController: UITableViewController, NSFetchedResultsControl
     
     @IBAction func addProfile(_ sender: Any) {
         let alert = UIAlertController(title: "Neues Profil", message: "Profilnamen eingeben", preferredStyle: .alert)
-        alert.addTextField { (textField) in
+            alert.addTextField { (textField) in
         }
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            guard let alert = alert, let textField = alert.textFields?[0], let name = textField.text, name.characters.count > 0 else {
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] (_) in
+            guard let `self` = self else { return }
+            guard let textField = alert.textFields?[0] else { return }
+            guard let name = textField.text else { return }
+            guard !name.characters.isEmpty else { return }
+
+            guard !self.exists(profileWithName: name) else {
+                let errorAlert = UIAlertController(title: "Neues Profil", message: "Name existiert schon", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true, completion: nil)
                 return
             }
-            
-            let managedContext = self.fetchedResultsController.managedObjectContext
-            let profile = Profile(context: managedContext)
-            profile.name = name
-            
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
+
+            self.create(profileWithName: name)
         }))
         
         self.present(alert, animated: true, completion: nil)
