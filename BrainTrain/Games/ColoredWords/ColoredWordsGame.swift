@@ -22,7 +22,7 @@ class ColoredWordsGame: GameProtocol {
     var randomNumberInstructor = 0
     var level: GameLevel = .easy
     
-    let farbe: [(String, UIColor)] = [("blau", .blue), ("grün", .green), ("rot", .red)]
+    let farbe: [(text: String, color: UIColor)] = [(text: "blau", color: .blue), (text: "grün", color: .green), (text: "rot", color: .red), (text: "gelb", color: .yellow), (text: "orange", color: .orange)]
     
     init() {
         self.viewController = ColoredWordsViewController(nibName: "ColoredWordsViewController", bundle: nil)
@@ -41,11 +41,15 @@ class ColoredWordsGame: GameProtocol {
         
         if level == .easy {
             randomNumberInstructor = 0
+            viewController.bottomButton.isHidden = true
         }
         else if level == .medium {
             randomNumberInstructor = 1
+            viewController.bottomButton.isHidden = true
         }
-        
+        else {
+            viewController.bottomButton.isHidden = false
+        }
         play()
     }
     
@@ -53,39 +57,51 @@ class ColoredWordsGame: GameProtocol {
         
         let randomNumberFarbbeschriftung = Int.random(0, farbe.count - 1)
         var randomNumberFarbe = Int.random(0, farbe.count - 1)
+        var randomNumberHintergrund = Int.random(0, farbe.count - 1)
         
         while randomNumberFarbbeschriftung == randomNumberFarbe  {
             randomNumberFarbe = Int.random(0, farbe.count - 1)
         }
-        let randomNumberAnordnung = Int.random(0, 1)
-        
-        
-        if level == .hard {
-           randomNumberInstructor = Int.random(0, 1)
+        while randomNumberHintergrund == randomNumberFarbe && randomNumberHintergrund == randomNumberFarbbeschriftung {
+            randomNumberHintergrund = Int.random(0, farbe.count - 1)
         }
+
+        randomNumberInstructor = Int.random(0, level.rawValue)
         
         if randomNumberInstructor == 0 {
             viewController.instructor.text = "Color"
+        }
+        else if randomNumberInstructor == 2 {
+            viewController.instructor.text = "Backround"
         }
         else {
             viewController.instructor.text = "Text"
         }
         
         
-        viewController.middleLabel.text = farbe[randomNumberFarbbeschriftung].0
-        viewController.middleLabel.textColor = farbe[randomNumberFarbe].1
-       
-        if randomNumberAnordnung == 0 {
-            viewController.leftButton.setTitle(farbe[randomNumberFarbbeschriftung].0, for: .normal)
-            viewController.rightButton.setTitle(farbe[randomNumberFarbe].0, for: .normal)
-            viewController.leftButton.backgroundColor = farbe[randomNumberFarbbeschriftung].1
-            viewController.rightButton.backgroundColor = farbe[randomNumberFarbe].1
+        viewController.middleLabel.text = farbe[randomNumberFarbbeschriftung].text
+        viewController.middleLabel.textColor = farbe[randomNumberFarbe].color
+        viewController.middleLabel.backgroundColor = farbe[randomNumberHintergrund].color
+
+
+        var buttons = [viewController.leftButton, viewController.rightButton]
+
+        if level == .hard {
+            buttons.append(viewController.bottomButton)
         }
-        else {
-            viewController.rightButton.setTitle(farbe[randomNumberFarbbeschriftung].0, for: .normal)
-            viewController.leftButton.setTitle(farbe[randomNumberFarbe].0, for: .normal)
-            viewController.rightButton.backgroundColor = farbe[randomNumberFarbbeschriftung].1
-            viewController.leftButton.backgroundColor = farbe[randomNumberFarbe].1
+
+        for colorIndex in [randomNumberFarbbeschriftung, randomNumberFarbe, randomNumberHintergrund] {
+            if buttons.isEmpty {
+                break
+            }
+
+            let randomIndex = Int.random(0, buttons.count)
+            let button = buttons[randomIndex]
+
+            button?.setTitle(farbe[colorIndex].text, for: .normal)
+            button?.backgroundColor = farbe[colorIndex].color
+
+            buttons.remove(at: randomIndex)
         }
         
         if viewController.leftButton.backgroundColor == .blue {
