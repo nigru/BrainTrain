@@ -25,8 +25,6 @@ extension MathOperator: Equatable {
     }
 }
 
-
-
 struct Math {
     let a, b: Int
     let op: MathOperator
@@ -84,5 +82,3 @@ extension Math: Equatable {
         return a.result == b
     }
 }
-
-

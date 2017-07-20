@@ -14,6 +14,7 @@ class TestGame: GameProtocol {
     var name: String = "Test"
     var description: String = "Ein Testspiel zu Demonstrationszwecken.\nZiel ist es den Button zu drücken."
     var score: Int = 0
+    var level: GameLevel = .easy
     var didEndGame: (() -> ())?
     
     init() {

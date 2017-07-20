@@ -25,7 +25,7 @@ extension ScoreController where Self: GameProtocol {
     }
 
     func saveScore() {
-        self.save(score: self.score, forGame: self.name, atDate: Date())
+        self.save(score: self.score, forGame: self.name, withLevel: self.level, atDate: Date())
     }
 }
 
@@ -79,7 +79,7 @@ extension ScoreController {
         return self.fetchScore(forGame: game, withProfile: AppDelegate.shared.profile, limit: limit)
     }
 
-    fileprivate func save(score: Int, forGame game: String, atDate date: Date) {
+    fileprivate func save(score: Int, forGame game: String, withLevel level: GameLevel, atDate date: Date) {
 
         let managedContext = AppDelegate.shared.persistentContainer.viewContext
 
@@ -90,6 +90,7 @@ extension ScoreController {
         s.score = Int32(score)
         s.date = date as NSDate
         s.profile = profile
+        s.level = Int16(level.rawValue)
 
         do {
             try managedContext.save()

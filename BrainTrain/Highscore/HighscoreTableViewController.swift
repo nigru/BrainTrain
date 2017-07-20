@@ -54,16 +54,34 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath) as! HighscoreTableViewCell
 
         let score = self.fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = "\(score.score)"
+        cell.scoreLabel.text = "\(score.score)"
 
+        let level = GameLevel(rawValue: Int(score.level)) ?? .easy
+        switch level {
+        case .easy:
+            cell.levelLabel.text = "easy"
+        case .medium:
+            cell.levelLabel.text = "medium"
+        case .hard:
+            cell.levelLabel.text = "hard"
+        }
+
+
+
+
+//        cell.levelLabel.text = 
+//        cell.textLabel?.text = "\(score.score)"
+//
         if let date = score.date {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy - HH:mm:ss"
-            cell.detailTextLabel?.text = dateFormatter.string(from: date as Date)
+            cell.dateLabel.text = dateFormatter.string(from: date as Date)
         }
+
+        cell.usernameLabel.text = score.profile?.name ?? ""
 
         return cell
     }

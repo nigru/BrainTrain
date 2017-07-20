@@ -15,11 +15,12 @@ class SpeedMathGame: GameProtocol {
     private static let SCORE_FOR_ERROR: Int = -1
     
     let name: String = "SpeedMath"
-    let description: String = "..."
+    let description: String = "Ziel ist es die angezeigten Rechenaufgaben so schnell wie möglich zu lösen. Jede richtige Lösung gibt Punkte, Fehlversuche führen zu Punktabzug."
     var didEndGame: (() -> ())?
     let viewController: SpeedMathViewController
     
     var score: Int = 0
+    var level: GameLevel = .easy
     private var playTime: Int = 0
     private var gameTimer: Timer?
     
@@ -53,12 +54,16 @@ class SpeedMathGame: GameProtocol {
                 self.max = 10
         }
         
+        self.resetGame()
+        self.currentMath = Math.random(min: self.min, max: self.max, operators: self.operators)
+        self.viewController.showKeyboard()
+        self.startTimer()
+    }
+
+    private func resetGame() {
         self.score = 0
         self.playTime = SpeedMathGame.PLAY_TIME
         self.viewController.show(playTime: self.playTime)
-        self.viewController.showKeyboard()
-        self.currentMath = Math.random(min: self.min, max: self.max, operators: self.operators)
-        self.startTimer()
     }
     
     private func startTimer() {
