@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpeedMathViewController" customModule="BrainTrain" customModuleProvider="target">
             <connections>
+                <outlet property="constraintLblMathCenter" destination="3Hp-8Y-bMv" id="3aa-LP-kA1"/>
                 <outlet property="lblMath" destination="SIz-aF-7JI" id="ffv-3Q-vTX"/>
                 <outlet property="lblTime" destination="7mM-PF-sz2" id="Rdo-O7-nSx"/>
                 <outlet property="txtFieldAnswer" destination="gQ3-I7-Fo0" id="1yV-uX-3np"/>
@@ -24,15 +25,12 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mM-PF-sz2">
                     <rect key="frame" x="20" y="30" width="335" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="h0M-Ft-OAt"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIz-aF-7JI">
-                    <rect key="frame" x="20" y="111" width="335" height="48"/>
+                    <rect key="frame" x="139.5" y="111" width="96.5" height="48"/>
                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -47,14 +45,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7mM-PF-sz2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="1H7-af-523"/>
-                <constraint firstAttribute="trailing" secondItem="SIz-aF-7JI" secondAttribute="trailing" constant="20" symbolic="YES" id="1c4-gN-9v8"/>
+                <constraint firstItem="SIz-aF-7JI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3Hp-8Y-bMv"/>
                 <constraint firstItem="gQ3-I7-Fo0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="3OC-pM-tdL"/>
                 <constraint firstAttribute="trailing" secondItem="gQ3-I7-Fo0" secondAttribute="trailing" constant="20" symbolic="YES" id="8oJ-Zq-Xzb"/>
                 <constraint firstItem="7mM-PF-sz2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="JFz-fd-9sD"/>
                 <constraint firstItem="gQ3-I7-Fo0" firstAttribute="top" secondItem="SIz-aF-7JI" secondAttribute="bottom" constant="60" id="MrM-0b-9YI"/>
                 <constraint firstItem="SIz-aF-7JI" firstAttribute="top" secondItem="7mM-PF-sz2" secondAttribute="bottom" constant="60" id="RJc-D5-QgQ"/>
                 <constraint firstAttribute="trailing" secondItem="7mM-PF-sz2" secondAttribute="trailing" constant="20" symbolic="YES" id="TgH-bJ-jc6"/>
-                <constraint firstItem="SIz-aF-7JI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="sI2-jf-sfq"/>
             </constraints>
         </view>
     </objects>

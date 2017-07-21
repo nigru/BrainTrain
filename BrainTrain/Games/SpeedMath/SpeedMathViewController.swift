@@ -13,11 +13,13 @@ class SpeedMathViewController: UIViewController {
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblMath: UILabel!
     @IBOutlet weak var txtFieldAnswer: UITextField!
-    
+    @IBOutlet weak var constraintLblMathCenter: NSLayoutConstraint!
+
     var checkMathClosure: ((String?) -> Bool)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.addToolBar()
     }
     
@@ -67,13 +69,23 @@ class SpeedMathViewController: UIViewController {
     }
     
     func show(math: Math?) {
-        self.txtFieldAnswer.text = ""
-        
-        guard let math = math else {
-            self.lblMath.text = ""
-            return
+        self.constraintLblMathCenter.constant = -self.view.bounds.width // links, nicht sichtbar
+
+        UIView.animate(withDuration: 0.3, animations: self.view.layoutIfNeeded) { bool in // animieren
+            self.txtFieldAnswer.text = ""
+
+            guard let math = math else {
+                self.lblMath.text = ""
+                return
+            }
+            self.lblMath.text = "\(math)"
+
+            self.constraintLblMathCenter.constant = self.view.bounds.width // rechts, nicht sichtbar
+            self.view.layoutIfNeeded() // ohne animation
+
+            self.constraintLblMathCenter.constant = 0 // mittig, sichtbar
+            UIView.animate(withDuration: 0.3, animations: self.view.layoutIfNeeded) // animieren
         }
-        self.lblMath.text = "\(math)"
     }
     
     func showKeyboard() {
