@@ -10,7 +10,7 @@ import UIKit
 
 class SpeedMathGame: GameProtocol {
 
-    private static let PLAY_TIME: Int = 30
+    private static let PLAY_TIME: Int = 10
     private static let SCORE_FOR_MATH: Int = 10
     private static let SCORE_FOR_ERROR: Int = -1
     

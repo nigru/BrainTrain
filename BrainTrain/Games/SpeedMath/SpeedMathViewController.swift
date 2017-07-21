@@ -10,6 +10,8 @@ import UIKit
 
 class SpeedMathViewController: UIViewController {
 
+    private static let animationDuration = 0.3
+
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblMath: UILabel!
     @IBOutlet weak var txtFieldAnswer: UITextField!
@@ -19,6 +21,8 @@ class SpeedMathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.lblMath.text = ""
 
         self.addToolBar()
     }
@@ -69,22 +73,28 @@ class SpeedMathViewController: UIViewController {
     }
     
     func show(math: Math?) {
+        guard let math = math else {
+            self.lblMath.text = ""
+            return
+        }
+
+        guard let txt = self.lblMath.text, !txt.isEmpty else {
+            self.lblMath.text = "\(math)"
+            return
+        }
+
         self.constraintLblMathCenter.constant = -self.view.bounds.width // links, nicht sichtbar
 
-        UIView.animate(withDuration: 0.3, animations: self.view.layoutIfNeeded) { bool in // animieren
+        UIView.animate(withDuration: SpeedMathViewController.animationDuration, animations: self.view.layoutIfNeeded) { bool in // animieren
             self.txtFieldAnswer.text = ""
 
-            guard let math = math else {
-                self.lblMath.text = ""
-                return
-            }
             self.lblMath.text = "\(math)"
 
             self.constraintLblMathCenter.constant = self.view.bounds.width // rechts, nicht sichtbar
             self.view.layoutIfNeeded() // ohne animation
 
             self.constraintLblMathCenter.constant = 0 // mittig, sichtbar
-            UIView.animate(withDuration: 0.3, animations: self.view.layoutIfNeeded) // animieren
+            UIView.animate(withDuration: SpeedMathViewController.animationDuration, animations: self.view.layoutIfNeeded) // animieren
         }
     }
     
