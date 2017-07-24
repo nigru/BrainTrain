@@ -52,7 +52,6 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
         }
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath) as! HighscoreTableViewCell
 
@@ -69,12 +68,6 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
             cell.levelLabel.text = "hard"
         }
 
-
-
-
-//        cell.levelLabel.text = 
-//        cell.textLabel?.text = "\(score.score)"
-//
         if let date = score.date {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy - HH:mm:ss"
@@ -84,6 +77,29 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
         cell.usernameLabel.text = score.profile?.name ?? ""
 
         return cell
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            break
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break
+        case .update:
+            break
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+            break
+        }
     }
 
 }
