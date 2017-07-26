@@ -1,15 +1,19 @@
 //
-//  HighscoreTableViewController.swift
+//  HighscoreViewController.swift
 //  BrainTrain
 //
-//  Created by Nikolai Gruschke on 13.07.17.
+//  Created by Nikolai Gruschke on 26.07.17.
 //  Copyright © 2017 Gruppe 4. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class HighscoreTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, HasGame {
+class HighscoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, HasGame {
+
+    @IBOutlet weak var segmentedControlLevel: UISegmentedControl!
+    @IBOutlet weak var segmentedControlProfile: UISegmentedControl!
+    @IBOutlet weak var tableView: UITableView!
 
     var fetchedResultsController: NSFetchedResultsController<Score>!
     var game: GameProtocol? {
@@ -20,23 +24,29 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sections = fetchedResultsController.sections else {
             fatalError("No sections in fetchedResultsController")
         }
 
         let sectionInfo = sections[section]
         return sectionInfo.numberOfObjects
+
     }
-    
-    func initFetchedResultsController() {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 0
+    }
+
+    func initFetchedResultsController(allProfiles: Bool = false, limit: Int = 15) {
         guard let game = self.game else { return }
 
-        let request = game.fetchScoreRequest(withProfile: nil, withLimit: 15)
+        let request: NSFetchRequest<Score>
+        if allProfiles {
+            request = game.fetchScoreRequest(withProfile: nil, withLimit: limit)
+        } else {
+            request = game.fetchScoreRequest(withProfile: AppDelegate.shared.profile, withLimit: limit)
+        }
         request.sortDescriptors = game.scoreSort(scoreAscending: false, dateAscending: false)
 
         let appDelegate = AppDelegate.shared
@@ -52,7 +62,7 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
         }
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath) as! HighscoreTableViewCell
 
         let score = self.fetchedResultsController.object(at: indexPath)
@@ -75,7 +85,7 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
         }
 
         cell.usernameLabel.text = score.profile?.name ?? ""
-
+        
         return cell
     }
 
@@ -100,6 +110,39 @@ class HighscoreTableViewController: UITableViewController, NSFetchedResultsContr
             }
             break
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.segmentedControlProfile.setTitle(AppDelegate.shared.profile?.name, forSegmentAt: 0)
+        self.segmentedControlProfile.setTitle("All", forSegmentAt: 1)
+
+        self.segmentedControlLevel.setTitle("All", forSegmentAt: 0)
+        self.segmentedControlLevel.setTitle("Easy", forSegmentAt: 1)
+        self.segmentedControlLevel.setTitle("Medium", forSegmentAt: 2)
+        self.segmentedControlLevel.setTitle("Hard", forSegmentAt: 3)
+    }
+
+    @IBAction func indexChanged(_ sender: Any) {
+        var profile: Profile? = nil
+        if self.segmentedControlProfile.selectedSegmentIndex == 0 {
+            profile = AppDelegate.shared.profile
+        }
+
+        var level: GameLevel? = nil
+        if self.segmentedControlLevel.selectedSegmentIndex != 0 {
+            level = GameLevel(rawValue: self.segmentedControlLevel.selectedSegmentIndex - 1)
+        }
+
+        let _ = self.game?.setScorePredicate(forRequest: self.fetchedResultsController.fetchRequest, withProfile: profile, forLevel: level, withLimit: 15)
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to init FetchResultsController: \(error)")
+        }
+
+        self.tableView.reloadData()
     }
 
 }
