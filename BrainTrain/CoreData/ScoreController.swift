@@ -16,6 +16,10 @@ extension ScoreController where Self: GameProtocol {
         return self.fetchScoreRequest(forGame: self, withProfile: profile, withLimit: limit)
     }
 
+    func setScorePredicate(forRequest fetchRequest: NSFetchRequest<Score>, withProfile profile: Profile?, forLevel level: GameLevel? = nil, withLimit limit: Int? = nil) -> NSFetchRequest<Score> {
+        return self.setPredicate(forRequest: fetchRequest, forGame: self, withProfile: profile, forLevel: level, withLimit: limit)
+    }
+
     func fetchScore(withProfile profile: Profile?, limit: Int? = nil) -> [Score] {
         return self.fetchScore(forGame: self, withProfile: profile, limit: limit)
     }
@@ -45,11 +49,13 @@ extension ScoreController {
         return sort
     }
 
-    fileprivate func fetchScoreRequest(forGame game: GameProtocol, withProfile profile: Profile?, withLimit limit: Int? = nil) -> NSFetchRequest<Score> {
-        let fetchRequest: NSFetchRequest<Score> = Score.fetchRequest()
-
-        if let profile = profile {
+    fileprivate func setPredicate(forRequest fetchRequest: NSFetchRequest<Score>, forGame game: GameProtocol, withProfile profile: Profile?, forLevel level: GameLevel? = nil, withLimit limit: Int? = nil) -> NSFetchRequest<Score> {
+        if let profile = profile, let level = level {
+            fetchRequest.predicate = NSPredicate(format: "game == %@ AND profile == %@ AND level == %d", game.name, profile, level.rawValue)
+        } else if let profile = profile {
             fetchRequest.predicate = NSPredicate(format: "game == %@ AND profile == %@", game.name, profile)
+        } else if let level = level {
+            fetchRequest.predicate = NSPredicate(format: "game == %@ AND level == %d", game.name, level.rawValue)
         } else {
             fetchRequest.predicate = NSPredicate(format: "game == %@", game.name)
         }
@@ -59,6 +65,11 @@ extension ScoreController {
         }
 
         return fetchRequest
+    }
+
+    fileprivate func fetchScoreRequest(forGame game: GameProtocol, withProfile profile: Profile?, withLimit limit: Int? = nil) -> NSFetchRequest<Score> {
+        let fetchRequest: NSFetchRequest<Score> = Score.fetchRequest()
+        return self.setPredicate(forRequest: fetchRequest, forGame: game, withProfile: profile, withLimit: limit)
     }
 
     fileprivate func fetchScore(forGame game: GameProtocol, withProfile profile: Profile?, limit: Int? = nil) -> [Score] {
