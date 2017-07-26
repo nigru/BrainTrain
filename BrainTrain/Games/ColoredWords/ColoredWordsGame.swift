@@ -12,7 +12,7 @@ import SwiftRandom
 class ColoredWordsGame: GameProtocol {
     private var viewController: ColoredWordsViewController
     let name: String = "ColoredWords"
-    let description: String = "..."
+    let description: String = "Finds selbst heraus :P"
     var didEndGame: (() -> ())?
     var playTime = 10
     
@@ -20,9 +20,11 @@ class ColoredWordsGame: GameProtocol {
     var score: Int = 0
     private var gameTimer: Timer?
     var randomNumberInstructor = 0
+    var relevantAnswer : (text : String, color: UIColor)?
+    
     var level: GameLevel = .easy
     
-    let farbe: [(text: String, color: UIColor)] = [(text: "blau", color: .blue), (text: "grün", color: .green), (text: "rot", color: .red), (text: "gelb", color: .yellow), (text: "orange", color: .orange)]
+    let farbe: [(text: String, color: UIColor)] = [(text: "blau", color: .blue), (text: "grün", color: .green), (text: "rot", color: .red), (text: "violet", color: .purple), (text: "orange", color: .orange)]
     
     init() {
         self.viewController = ColoredWordsViewController(nibName: "ColoredWordsViewController", bundle: nil)
@@ -32,6 +34,7 @@ class ColoredWordsGame: GameProtocol {
         self.level = level
         self.viewController.leftButton.addTarget(self, action: #selector(leftButtonClick), for: UIControlEvents.touchUpInside)
         self.viewController.rightButton.addTarget(self, action: #selector(rightButtonClick), for: UIControlEvents.touchUpInside)
+        self.viewController.bottomButton.addTarget(self, action: #selector(bottomButtonClick), for: UIControlEvents.touchUpInside)
         
         gameTimer?.invalidate()
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
@@ -57,32 +60,44 @@ class ColoredWordsGame: GameProtocol {
         
         let randomNumberFarbbeschriftung = Int.random(0, farbe.count - 1)
         var randomNumberFarbe = Int.random(0, farbe.count - 1)
-        var randomNumberHintergrund = Int.random(0, farbe.count - 1)
+        var randomNumberRahmen = Int.random(0, farbe.count - 1)
         
         while randomNumberFarbbeschriftung == randomNumberFarbe  {
             randomNumberFarbe = Int.random(0, farbe.count - 1)
         }
-        while randomNumberHintergrund == randomNumberFarbe && randomNumberHintergrund == randomNumberFarbbeschriftung {
-            randomNumberHintergrund = Int.random(0, farbe.count - 1)
+        while (randomNumberRahmen == randomNumberFarbe) || (randomNumberRahmen == randomNumberFarbbeschriftung) {
+            randomNumberRahmen = Int.random(0, farbe.count - 1)
         }
 
         randomNumberInstructor = Int.random(0, level.rawValue)
         
         if randomNumberInstructor == 0 {
-            viewController.instructor.text = "Color"
+            viewController.instructor.text = "Text"
+            self.relevantAnswer = farbe[randomNumberFarbbeschriftung]
         }
         else if randomNumberInstructor == 2 {
-            viewController.instructor.text = "Backround"
+            viewController.instructor.text = "BorderColor"
+            self.relevantAnswer = farbe[randomNumberRahmen]
         }
         else {
-            viewController.instructor.text = "Text"
+            viewController.instructor.text = "Color"
+            self.relevantAnswer = farbe[randomNumberFarbe]
+            
         }
         
         
         viewController.middleLabel.text = farbe[randomNumberFarbbeschriftung].text
         viewController.middleLabel.textColor = farbe[randomNumberFarbe].color
-        viewController.middleLabel.backgroundColor = farbe[randomNumberHintergrund].color
-
+        
+        if level == .hard {
+            viewController.middleLabel.layer.borderColor = farbe[randomNumberRahmen].color.cgColor
+            viewController.middleLabel.layer.borderWidth = 5
+            viewController.middleLabel.layer.cornerRadius = 5
+        } else {
+            viewController.middleLabel.layer.borderColor = farbe[randomNumberFarbe].color.cgColor
+            viewController.middleLabel.layer.borderWidth = 5
+            viewController.middleLabel.layer.cornerRadius = 5
+        }
 
         var buttons = [viewController.leftButton, viewController.rightButton]
 
@@ -90,12 +105,12 @@ class ColoredWordsGame: GameProtocol {
             buttons.append(viewController.bottomButton)
         }
 
-        for colorIndex in [randomNumberFarbbeschriftung, randomNumberFarbe, randomNumberHintergrund] {
+        for colorIndex in [randomNumberFarbbeschriftung, randomNumberFarbe, randomNumberRahmen] {
             if buttons.isEmpty {
                 break
             }
 
-            let randomIndex = Int.random(0, buttons.count)
+            let randomIndex = Int.random(0, buttons.count-1)
             let button = buttons[randomIndex]
 
             button?.setTitle(farbe[colorIndex].text, for: .normal)
@@ -139,40 +154,32 @@ class ColoredWordsGame: GameProtocol {
     }
     
     @objc func leftButtonClick() {
-        if randomNumberInstructor == 0 {
-            if self.viewController.middleLabel.textColor == self.viewController.leftButton.backgroundColor  {
-                score += 10
-            }
-            else {
-                score -= 10
-            }
+        
+        if self.viewController.leftButton.backgroundColor == self.relevantAnswer?.color {
+            score += 10
         } else {
-            if self.viewController.middleLabel.textColor == self.viewController.leftButton.backgroundColor  {
-                score -= 10
-            }
-            else {
-                score += 10
-            }
-
+            score -= 10
+        }
+        play()
+        
+    }
+    
+    @objc func rightButtonClick() {
+        
+        if self.viewController.rightButton.backgroundColor == self.relevantAnswer?.color {
+            score += 10
+        } else {
+            score -= 10
         }
         play()
     }
     
-    @objc func rightButtonClick() {
-        if randomNumberInstructor == 0 {
-            if self.viewController.middleLabel.textColor == self.viewController.rightButton.backgroundColor  {
-                score += 10
-            }
-            else {
-                score -= 10
-            }
+    @objc func bottomButtonClick() {
+        
+        if self.viewController.bottomButton.backgroundColor == self.relevantAnswer?.color {
+            score += 10
         } else {
-            if self.viewController.middleLabel.textColor == self.viewController.rightButton.backgroundColor  {
-                score -= 10
-            }
-            else {
-                score += 10
-            }
+            score -= 10
         }
         play()
     }
