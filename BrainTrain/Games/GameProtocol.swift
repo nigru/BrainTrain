@@ -31,4 +31,3 @@ extension GameProtocol {
         self.start(level: self.level)
     }
 }
-

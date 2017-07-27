@@ -42,7 +42,7 @@ class GameTabBarController: UITabBarController, HasGame {
         game.saveScore()
         game.getViewController().dismiss(animated: false, completion: nil)
 
-        self.present(ScoreViewController(score: game.score), animated: false, completion: nil)
+        self.present(ScoreViewController(game: game), animated: false, completion: nil)
     }
 
 }
