@@ -68,15 +68,8 @@ class HighscoreViewController: UIViewController, UITableViewDataSource, UITableV
         let score = self.fetchedResultsController.object(at: indexPath)
         cell.scoreLabel.text = "\(score.score)"
 
-        let level = GameLevel(rawValue: Int(score.level)) ?? .easy
-        switch level {
-        case .easy:
-            cell.levelLabel.text = "easy"
-        case .medium:
-            cell.levelLabel.text = "medium"
-        case .hard:
-            cell.levelLabel.text = "hard"
-        }
+        let level = (GameLevel(rawValue: Int(score.level)) ?? .easy).description
+        cell.levelLabel.text = level
 
         if let date = score.date {
             let dateFormatter = DateFormatter()
@@ -125,9 +118,9 @@ class HighscoreViewController: UIViewController, UITableViewDataSource, UITableV
         self.segmentedControlProfile.setTitle("All", forSegmentAt: 1)
 
         self.segmentedControlLevel.setTitle("All", forSegmentAt: 0)
-        self.segmentedControlLevel.setTitle("Easy", forSegmentAt: 1)
-        self.segmentedControlLevel.setTitle("Medium", forSegmentAt: 2)
-        self.segmentedControlLevel.setTitle("Hard", forSegmentAt: 3)
+        self.segmentedControlLevel.setTitle(GameLevel.easy.description.capitalized, forSegmentAt: 1)
+        self.segmentedControlLevel.setTitle(GameLevel.medium.description.capitalized, forSegmentAt: 2)
+        self.segmentedControlLevel.setTitle(GameLevel.hard.description.capitalized, forSegmentAt: 3)
     }
 
     @IBAction func indexChanged(_ sender: Any) {

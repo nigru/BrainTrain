@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,21 +28,36 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RG5-mK-qgZ">
-                    <rect key="frame" x="112.5" y="581" width="150" height="36"/>
+                    <rect key="frame" x="112.5" y="567" width="150" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="ZEC-xH-9Pj"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Done"/>
                 </button>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duG-2E-V3W">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="GCa-H4-qlj"/>
+                        <barButtonItem systemItem="action" id="0LT-vH-Hoe">
+                            <connections>
+                                <action selector="shareBtnClick:" destination="-1" id="gQP-vQ-W17"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sBr-qa-cgx"/>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="duG-2E-V3W" secondAttribute="bottom" id="Jf3-PU-nnj"/>
                 <constraint firstAttribute="trailing" secondItem="zo7-Fr-0H6" secondAttribute="trailing" constant="20" symbolic="YES" id="S7f-td-JB8"/>
-                <constraint firstAttribute="bottom" secondItem="RG5-mK-qgZ" secondAttribute="bottom" constant="50" id="U6S-rK-Tb0"/>
+                <constraint firstAttribute="trailing" secondItem="duG-2E-V3W" secondAttribute="trailing" id="Wbc-6v-kEw"/>
                 <constraint firstItem="RG5-mK-qgZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="anX-8j-HQ9"/>
                 <constraint firstItem="zo7-Fr-0H6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="eQI-dd-0TF"/>
+                <constraint firstItem="duG-2E-V3W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="euR-M6-L1n"/>
                 <constraint firstItem="zo7-Fr-0H6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="300" id="fbu-Ve-F6F"/>
+                <constraint firstItem="duG-2E-V3W" firstAttribute="top" secondItem="RG5-mK-qgZ" secondAttribute="bottom" constant="20" id="j8i-ZA-xC9"/>
             </constraints>
             <point key="canvasLocation" x="51.5" y="112.5"/>
         </view>

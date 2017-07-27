@@ -32,3 +32,10 @@ extension GameProtocol {
     }
 }
 
+extension GameProtocol {
+    var urlScheme: String {
+        get {
+            return "braintrain://\(self.name)/\(self.level.rawValue)"
+        }
+    }
+}

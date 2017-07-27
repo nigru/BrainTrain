@@ -16,17 +16,25 @@ class GameManager {
 
     private static let instance = GameManager()
 
-    private var games: [GameProtocol] = []
+    private var games: [String: GameProtocol] = [:]
     
     init() {
-        self.games.append(ErrorSpotting())
-        self.games.append(SpeedMathGame())
-        self.games.append(ColoredWordsGame())
-        self.games.append(TestGame())
+        self.addGame(ErrorSpotting())
+        self.addGame(SpeedMathGame())
+        self.addGame(ColoredWordsGame())
+        self.addGame(TestGame())
+    }
+
+    private func addGame(_ game: GameProtocol) {
+        self.games[game.name] = game
+    }
+
+    public func getGame(byName name: String) -> GameProtocol? {
+        return self.games[name]
     }
     
     public func getGame(index: Int) -> GameProtocol {
-        return self.games[index]
+        return Array(self.games.values)[index]
     }
     
     public func getGamesCount() -> Int {

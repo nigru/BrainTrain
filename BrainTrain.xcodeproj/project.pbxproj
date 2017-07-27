@@ -11,6 +11,7 @@
 		500BC4D31F1A0F1700F1869D /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BC4D21F1A0F1700F1869D /* ScoreController.swift */; };
 		503897A21F28CF5500661225 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503897A11F28CF5400661225 /* HighscoreViewController.swift */; };
 		503ED2651F17765600DC2282 /* HasGameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503ED2641F17765600DC2282 /* HasGameProtocol.swift */; };
+		5043675E1F2A2D7C00CFEC74 /* GameActivityItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043675D1F2A2D7C00CFEC74 /* GameActivityItemSource.swift */; };
 		50683EA91EE471D50039C140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50683EA81EE471D50039C140 /* AppDelegate.swift */; };
 		50683EAE1EE471D50039C140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50683EAC1EE471D50039C140 /* Main.storyboard */; };
 		50683EB01EE471D50039C140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50683EAF1EE471D50039C140 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		500BC4D21F1A0F1700F1869D /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
 		503897A11F28CF5400661225 /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		503ED2641F17765600DC2282 /* HasGameProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasGameProtocol.swift; sourceTree = "<group>"; };
+		5043675D1F2A2D7C00CFEC74 /* GameActivityItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameActivityItemSource.swift; sourceTree = "<group>"; };
 		50683EA51EE471D50039C140 /* BrainTrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainTrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50683EA81EE471D50039C140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50683EAD1EE471D50039C140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		50683EDB1EE4742F0039C140 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				5043675D1F2A2D7C00CFEC74 /* GameActivityItemSource.swift */,
 				50683EDC1EE474390039C140 /* GameProtocol.swift */,
 				503ED2641F17765600DC2282 /* HasGameProtocol.swift */,
 				507889471F03E16D00C66E23 /* GameLevel.swift */,
@@ -616,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D37D671F1A1F5C0005A30F /* ProfileController.swift in Sources */,
+				5043675E1F2A2D7C00CFEC74 /* GameActivityItemSource.swift in Sources */,
 				50F7F1231F0E48D50026850E /* ProfileTableViewController.swift in Sources */,
 				507889431EED6B7300C66E23 /* ColoredWordsViewController.swift in Sources */,
 				50683EF31EE569CA0039C140 /* ErrorSpotting.swift in Sources */,
@@ -795,11 +799,13 @@
 			baseConfigurationReference = FC58577C8BAFDA8BF62A57F8 /* Pods-BrainTrain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = D433NZGTKV;
 				INFOPLIST_FILE = BrainTrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gruppe4.BrainTrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -809,11 +815,13 @@
 			baseConfigurationReference = 48BF940B616658E5C161E11F /* Pods-BrainTrain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = D433NZGTKV;
 				INFOPLIST_FILE = BrainTrain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gruppe4.BrainTrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -8,8 +8,23 @@
 
 import Foundation
 
-public enum GameLevel: Int {
+public enum GameLevel: Int, CustomStringConvertible {
+
+    public var description: String {
+        get {
+            switch self {
+            case .easy:
+                return "easy"
+            case .medium:
+                return "medium"
+            case .hard:
+                return "hard"
+            }
+        }
+    }
+
     case easy
     case medium
     case hard
+
 }

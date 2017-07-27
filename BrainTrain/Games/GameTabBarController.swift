@@ -15,6 +15,7 @@ class GameTabBarController: UITabBarController, HasGame {
             guard var game = self.game else { return }
 
             game.didEndGame = self.didEndGame
+            self.title = game.name
             if self.isViewLoaded {
                 self.setGameForChildViewController()
             }
@@ -25,7 +26,30 @@ class GameTabBarController: UITabBarController, HasGame {
         super.viewDidLoad()
         self.setGameForChildViewController()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(appDidBecomeActive),
+                                       name: Notification.Name.UIApplicationDidBecomeActive,
+                                       object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+
+    @objc private func appDidBecomeActive() {
+        if let _ = AppDelegate.shared.urlGame {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+
     private func setGameForChildViewController() {
         guard let game = self.game else { return }
         
@@ -42,7 +66,7 @@ class GameTabBarController: UITabBarController, HasGame {
         game.saveScore()
         game.getViewController().dismiss(animated: false, completion: nil)
 
-        self.present(ScoreViewController(score: game.score), animated: false, completion: nil)
+        self.present(ScoreViewController(game: game), animated: false, completion: nil)
     }
 
 }

@@ -33,10 +33,18 @@ class GameViewController: UIViewController, HasGame {
 
         self.initChart()
         
-        self.segmentedControlLevel.setTitle("Easy", forSegmentAt: 0)
-        self.segmentedControlLevel.setTitle("Medium", forSegmentAt: 1)
-        self.segmentedControlLevel.setTitle("Hard", forSegmentAt: 2)
-        
+        self.segmentedControlLevel.setTitle(GameLevel.easy.description.capitalized, forSegmentAt: 0)
+        self.segmentedControlLevel.setTitle(GameLevel.medium.description.capitalized, forSegmentAt: 1)
+        self.segmentedControlLevel.setTitle(GameLevel.hard.description.capitalized, forSegmentAt: 2)
+
+        self.segmentedControlLevel.selectedSegmentIndex = self.game?.level.rawValue ?? 0
+
+        self.updateGame()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
                                        selector: #selector(appWillResignActive),
@@ -52,10 +60,15 @@ class GameViewController: UIViewController, HasGame {
                                        selector: #selector(contextSaved(_:)),
                                        name: .NSManagedObjectContextDidSave,
                                        object: managedContext)
-
-        self.updateGame()
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+
     @objc private func contextSaved(_ notification: Notification) {
         self.updateChart()
     }

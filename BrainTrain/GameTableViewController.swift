@@ -29,9 +29,30 @@ class GameTableViewController: UITableViewController {
         
         self.navigationItem.title = profile.name
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let _ = AppDelegate.shared.urlGame {
+            self.performSegue(withIdentifier: "urlGame", sender: self)
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(viewDidAppear),
+                                       name: Notification.Name.UIApplicationDidBecomeActive,
+                                       object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
     }
     
     // MARK: - Table view data source
@@ -51,16 +72,19 @@ class GameTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Game", let destinationVC = segue.destination as? GameTabBarController {
-            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                let game = self.gameManager.getGame(index: indexPath.row)
-                destinationVC.game = game
+        if let destinationVC = segue.destination as? GameTabBarController {
+            var game: GameProtocol? = nil
+            if segue.identifier == "Game" {
+                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+                    game = self.gameManager.getGame(index: indexPath.row)
+                }
+            } else if segue.identifier == "urlGame" {
+                game = AppDelegate.shared.urlGame
+                AppDelegate.shared.urlGame = nil
             }
+
+            destinationVC.game = game
         }
-    }
-    
-    func switchProfile() {
-        self.dismiss(animated: true, completion: nil)
     }
     
 }
