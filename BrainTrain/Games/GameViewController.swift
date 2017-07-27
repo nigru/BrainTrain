@@ -33,9 +33,9 @@ class GameViewController: UIViewController, HasGame {
 
         self.initChart()
         
-        self.segmentedControlLevel.setTitle("Easy", forSegmentAt: 0)
-        self.segmentedControlLevel.setTitle("Medium", forSegmentAt: 1)
-        self.segmentedControlLevel.setTitle("Hard", forSegmentAt: 2)
+        self.segmentedControlLevel.setTitle(GameLevel.easy.description.capitalized, forSegmentAt: 0)
+        self.segmentedControlLevel.setTitle(GameLevel.medium.description.capitalized, forSegmentAt: 1)
+        self.segmentedControlLevel.setTitle(GameLevel.hard.description.capitalized, forSegmentAt: 2)
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
