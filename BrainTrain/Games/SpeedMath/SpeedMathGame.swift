@@ -75,6 +75,8 @@ class SpeedMathGame: GameProtocol {
     }
     
     func resume() {
+        guard let timer = self.gameTimer, !timer.isValid else { return }
+
         self.startTimer()
     }
     
