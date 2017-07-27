@@ -90,6 +90,12 @@ class HighscoreViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        guard let tableView = self.tableView else {
+            // für den Fall, dass die View noch nicht geladen wurde. In diesem Fall ist self.tableView == nil
+            // Die TableView ist zu diesem Zeitpunkt gar nicht gefüllt und ein Anzeigen der View füllt diese mit den aktuellen Daten. Daher muss keine aktualisierung vorgenommen werden
+            return
+        }
+
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
