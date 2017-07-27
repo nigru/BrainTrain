@@ -54,12 +54,7 @@ class GameViewController: UIViewController, HasGame {
                                        selector: #selector(appDidBecomeActive),
                                        name: Notification.Name.UIApplicationDidBecomeActive,
                                        object: nil)
-
-        let managedContext = AppDelegate.shared.persistentContainer.viewContext
-        notificationCenter.addObserver(self,
-                                       selector: #selector(contextSaved(_:)),
-                                       name: .NSManagedObjectContextDidSave,
-                                       object: managedContext)
+        self.updateChart()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,10 +62,6 @@ class GameViewController: UIViewController, HasGame {
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
-    }
-
-    @objc private func contextSaved(_ notification: Notification) {
-        self.updateChart()
     }
     
     private func updateGame() {

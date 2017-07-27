@@ -10,7 +10,7 @@ import UIKit
 
 class SpeedMathGame: GameProtocol {
 
-    private static let PLAY_TIME: Int = 10
+    private static let PLAY_TIME: Int = 30
     private static let SCORE_FOR_MATH: Int = 10
     private static let SCORE_FOR_ERROR: Int = -1
     
@@ -99,8 +99,8 @@ class SpeedMathGame: GameProtocol {
     
     private func checkMath(input: String?) -> Bool {
         if let currentMath = self.currentMath {
-            if let input = input, let inputInt = Int(input) {
-                if currentMath == inputInt {
+            if let input = input?.replacingOccurrences(of: ",", with: "."), let inputFloat = Float(input) {
+                if currentMath == inputFloat {
                     self.score += SpeedMathGame.SCORE_FOR_MATH
                 } else {
                     self.score += SpeedMathGame.SCORE_FOR_ERROR
