@@ -18,7 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var profile: Profile?
+    var urlGame: GameProtocol?
 
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        guard url.scheme == "braintrain" else {
+            return false
+        }
+
+        // z.B.: braintrain://SpeedMath/1
+        if let game = url.host {
+            self.urlGame = GameManager.getInstance().getGame(byName: game)
+
+            let components = url.pathComponents
+            if components.count > 1 {
+                self.urlGame?.level = GameLevel(rawValue: Int(components[1]) ?? GameLevel.easy.rawValue) ?? .easy
+            }
+        }
+
+        return true
+    }
 
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()

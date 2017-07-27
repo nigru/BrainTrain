@@ -21,7 +21,11 @@ class GameActivityItemSource: NSObject, UIActivityItemSource {
     }
 
     public func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType) -> Any? {
-        return "Im Spiel \"\(self.game.name) \(self.game.level)\" habe ich \(self.game.score) Punkte erreicht. Schaffst du mehr?"
+        var str = "Im Spiel \"\(self.game.name) \(self.game.level)\" habe ich \(self.game.score) Punkte erreicht. Schaffst du mehr?"
+        if let url = URL(string: self.game.urlScheme) {
+            str += "\n\(url)"
+        }
+        return str
     }
 
     @objc func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivityType?) -> String {
