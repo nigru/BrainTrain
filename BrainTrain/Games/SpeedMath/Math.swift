@@ -11,7 +11,7 @@ import SwiftRandom
 
 struct MathOperator {
     let str: String
-    let op: ((Int, Int) -> Int)
+    let op: ((Float, Float) -> Float)
     
     static let add = MathOperator(str: "+", op: (+))
     static let sub = MathOperator(str: "-", op: (-))
@@ -29,8 +29,10 @@ struct Math {
     let a, b: Int
     let op: MathOperator
 
-    var result: Int {
-        return self.op.op(self.a, self.b)
+    var result: Float {
+        let res = self.op.op(Float(self.a), Float(self.b))
+        print("\(self): \(res)")
+        return res
     }
 
     func isValid() -> Bool {
@@ -41,11 +43,25 @@ struct Math {
             self.b < 0)
     }
 
+    func isSolvable() -> Bool {
+        let str = self.result.description
+        let strComponents = str.components(separatedBy: ".")
+
+        if (strComponents.count == 2) {
+            if strComponents[1].characters.count > 3 {
+                print("not solvable: \(self) = \(str)")
+            }
+            return strComponents[1].characters.count <= 3
+        }
+
+        return true
+    }
+
     static func random(min: Int, max: Int, operators: [MathOperator]) -> Math {
         var math: Math
         repeat {
             math = Math(a: Int.random(min, max), b: Int.random(min, max), op: operators.randomItem()!)
-        } while !math.isValid()
+        } while !math.isValid() || !math.isSolvable()
     
         return math
     }
@@ -71,14 +87,14 @@ extension Math: CustomStringConvertible {
 
 extension Math: Equatable {
     static func == (a: Math, b: Math) -> Bool {
-        return a.result == b.result
+        return a.result.distance(to: b.result) == 0.0
     }
 
-    static func == (a: Int, b: Math) -> Bool {
-        return a == b.result
+    static func == (a: Float, b: Math) -> Bool {
+        return a.distance(to: b.result) == 0.0
     }
 
-    static func == (a: Math, b: Int) -> Bool {
-        return a.result == b
+    static func == (a: Math, b: Float) -> Bool {
+        return a.result.distance(to: b) == 0.0
     }
 }
