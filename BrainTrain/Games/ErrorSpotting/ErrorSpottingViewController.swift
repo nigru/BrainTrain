@@ -31,18 +31,30 @@ class ErrorSpottingViewController: UIViewController {
     
     func show(errorRemaining: Int?) {
         guard let errorRemaining = errorRemaining else {
-            self.errorLabel.text = ""
+            self.errorLabel.attributedText  = NSAttributedString(string: "", attributes: nil)
             return
         }
-        self.errorLabel.text = "\(errorRemaining)"
+        
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "\(errorRemaining)")
+        attributeString.addAttribute(NSStrokeColorAttributeName, value: UIColor.white, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSStrokeWidthAttributeName, value: -5.0, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attributeString.length))
+
+        self.errorLabel.attributedText = attributeString
     }
     
     func show(playTime: Int?) {
         guard let playTime = playTime else {
-            self.timeLabel.text = ""
+            self.timeLabel.attributedText = NSAttributedString(string: "", attributes: nil)
             return
         }
-        self.timeLabel.text = "\(playTime)"
+
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: "\(playTime)")
+        attributeString.addAttribute(NSStrokeColorAttributeName, value: UIColor.white, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSStrokeWidthAttributeName, value: -5.0, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.black, range: NSMakeRange(0, attributeString.length))
+
+        self.timeLabel.attributedText = attributeString
     }
     
     @objc private func handleTap(recognizer: UITapGestureRecognizer) {
@@ -54,16 +66,5 @@ class ErrorSpottingViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
