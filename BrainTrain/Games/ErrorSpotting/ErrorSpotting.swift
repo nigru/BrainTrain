@@ -44,6 +44,8 @@ class ErrorSpotting: GameProtocol {
         self.score = 0
         self.colorIdentity = [0, -1, -1, -1, -1, -1, -1, -1]
         self.level = level
+        self.searchTime = 5
+        self.memorizeTime = 3
         
         self.viewController.tapClosure = nil
         self.viewController.show(playTime: nil)
