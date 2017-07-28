@@ -36,12 +36,15 @@ class ColoredWordsViewController: UIViewController {
         switch (sender.direction) {
         case UISwipeGestureRecognizerDirection.left :
             leftButton.sendActions(for: .touchUpInside)
+            leftButton.shake()
             break
         case UISwipeGestureRecognizerDirection.right :
             rightButton.sendActions(for: .touchUpInside)
+            rightButton.shake()
             break
         case UISwipeGestureRecognizerDirection.down :
             bottomButton.sendActions(for: .touchUpInside)
+            bottomButton.shake()
             break
         default :
             break
