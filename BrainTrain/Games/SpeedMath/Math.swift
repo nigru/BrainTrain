@@ -31,7 +31,6 @@ struct Math {
 
     var result: Float {
         let res = self.op.op(Float(self.a), Float(self.b))
-        print("\(self): \(res)")
         return res
     }
 
@@ -48,9 +47,6 @@ struct Math {
         let strComponents = str.components(separatedBy: ".")
 
         if (strComponents.count == 2) {
-            if strComponents[1].characters.count > 3 {
-                print("not solvable: \(self) = \(str)")
-            }
             return strComponents[1].characters.count <= 3
         }
 
