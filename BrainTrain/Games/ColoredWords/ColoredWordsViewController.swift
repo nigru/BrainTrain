@@ -18,8 +18,34 @@ class ColoredWordsViewController: UIViewController {
     @IBOutlet weak var bottomButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        leftSwipe.direction = .left
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (handleSwipe))
+        rightSwipe.direction = .right
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector (handleSwipe))
+        downSwipe.direction = .down
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(downSwipe)
+    }
+    
+    func handleSwipe (sender: UISwipeGestureRecognizer){
+        
+        switch (sender.direction) {
+        case UISwipeGestureRecognizerDirection.left :
+            leftButton.sendActions(for: .touchUpInside)
+            break
+        case UISwipeGestureRecognizerDirection.right :
+            rightButton.sendActions(for: .touchUpInside)
+            break
+        case UISwipeGestureRecognizerDirection.down :
+            bottomButton.sendActions(for: .touchUpInside)
+            break
+        default :
+            break
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +53,7 @@ class ColoredWordsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
