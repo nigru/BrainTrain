@@ -12,9 +12,9 @@ import SwiftRandom
 class ColoredWordsGame: GameProtocol {
     private var viewController: ColoredWordsViewController
     let name: String = "ColoredWords"
-    let description: String = "Finds selbst heraus :P"
+    let description: String = "Drücke zügig den Knopf mit der richtigen Farbe oder swipe in dessen Richtung (links, rechts, unten). Welche Farbe korrekt ist, entnimmst du der Angabe in der Mitte unterhalb des Timers.\n\n- Text :\t\t\tFarbe, die der Bedeutung des\n\t\t\t\tWortes in der Mitte entspricht\n- Color :\t\t\tFarbe des Schriftes\n- BorderColor :\tFarbe des Rahmens"
     var didEndGame: (() -> ())?
-    var playTime = 10
+    var playTime = 20
     
     
     var score: Int = 0
@@ -39,7 +39,7 @@ class ColoredWordsGame: GameProtocol {
         gameTimer?.invalidate()
         self.gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         score = 0
-        playTime = 10
+        playTime = 20
         self.viewController.timeLabel.text = "\(playTime)"
         
         if level == .easy {
@@ -155,6 +155,7 @@ class ColoredWordsGame: GameProtocol {
     
     @objc func leftButtonClick() {
         
+        self.viewController.leftButton.shake()
         if self.viewController.leftButton.backgroundColor == self.relevantAnswer?.color {
             score += 10
         } else {
@@ -166,6 +167,7 @@ class ColoredWordsGame: GameProtocol {
     
     @objc func rightButtonClick() {
         
+        self.viewController.rightButton.shake()
         if self.viewController.rightButton.backgroundColor == self.relevantAnswer?.color {
             score += 10
         } else {
@@ -176,6 +178,7 @@ class ColoredWordsGame: GameProtocol {
     
     @objc func bottomButtonClick() {
         
+        self.viewController.bottomButton.shake()
         if self.viewController.bottomButton.backgroundColor == self.relevantAnswer?.color {
             score += 10
         } else {
